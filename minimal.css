@@ -1,0 +1,393 @@
+/* ToolyTools — Soft Minimal UI
+   Neutral, content-first visual language inspired by conversational apps.
+   No glass, frosted effects, patterns, saturated gradients or hard shadows.
+   Layout foundation: styles.css + interaction.css. Functionality: refined.js. */
+:root,
+html[data-mode="light"]{
+  color-scheme:light;
+  --bg:#fafafa;
+  --surface:#ffffff;
+  --surface-2:#f3f4f4;
+  --text:#202123;
+  --muted:#73777d;
+  --border:#e7e7e7;
+  --accent:#202123;
+  --on-accent:#ffffff;
+  --focus:#516d88;
+  --hover:#f6f7f7;
+  --shadow-ink:transparent;
+  --shadow-card:0 2px 8px #20212308;
+  --shadow-dialog:0 18px 70px #171a2029,0 3px 12px #171a2012;
+  --site-glow:none;
+  --radius-lg:18px;
+  --radius-md:12px;
+  --card-border:1px solid var(--border);
+  --tile-border:0 solid transparent;
+  --folder-1:#f2f3f3;
+  --folder-2:#f2f5f7;
+  --folder-3:#eef3ef;
+  --folder-4:#f2f1f5;
+  --tile-1:#e1e5e9;
+  --tile-2:#deeaf3;
+  --tile-3:#e9edf0;
+  --tile-4:#deebf4;
+  --tile-5:#daebe2;
+  --tile-6:#e5e2f2;
+  --tile-7:#dbedf0;
+  --tile-8:#e3e4ec;
+  --tile-ink:#435363;
+  --ds-bg:var(--bg);
+  --ds-surface:var(--surface);
+  --ds-surface-alt:var(--surface-2);
+  --ds-text:var(--text);
+  --ds-muted:var(--muted);
+  --ds-border:var(--border);
+  --ds-accent:var(--accent);
+  --ds-on-accent:var(--on-accent);
+  --ds-positive:#3a7663;
+  --ds-focus:var(--focus);
+  --ds-radius:var(--radius-lg);
+  --ds-shadow:var(--shadow-card);
+}
+html[data-mode="dark"]{
+  color-scheme:dark;
+  --bg:#171717;
+  --surface:#242424;
+  --surface-2:#2e2e2e;
+  --text:#f1f1f1;
+  --muted:#aaaeb2;
+  --border:#363636;
+  --accent:#f2f2f2;
+  --on-accent:#1c1c1c;
+  --focus:#a9bfd2;
+  --hover:#303030;
+  --shadow-ink:transparent;
+  --shadow-card:0 3px 12px #00000015;
+  --shadow-dialog:0 22px 90px #0000008c,0 4px 15px #0000004d;
+  --folder-1:#303234;
+  --folder-2:#2d353b;
+  --folder-3:#2e3935;
+  --folder-4:#33313a;
+  --tile-1:#48535d;
+  --tile-2:#485d6c;
+  --tile-3:#474e53;
+  --tile-4:#476176;
+  --tile-5:#446456;
+  --tile-6:#56536d;
+  --tile-7:#476168;
+  --tile-8:#535469;
+  --tile-ink:#ecf4fa;
+  --ds-positive:#a6d3bc;
+}
+
+/* Overall shell */
+html,body{background:var(--bg);color:var(--text)}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+.demo-toolbar{
+  max-width:1080px;
+  padding:20px 24px 18px;
+  gap:20px;
+}
+.toolbar-eyebrow{color:var(--muted);font-size:10px;letter-spacing:1px;font-weight:600}
+.toolbar-name{font-size:21px;font-weight:690;letter-spacing:-.8px}
+.toolbar-name span{color:var(--text);font-weight:500}
+.toolbar-hint{color:var(--muted);font-size:12px;margin-top:4px}
+.mode-switch{
+  border:1px solid var(--border);background:var(--surface-2);
+  border-radius:999px;padding:3px;box-shadow:none;
+}
+.mode-switch button{
+  min-height:39px;border:0;border-radius:999px;padding:8px 15px;
+  background:transparent;color:var(--muted);font-weight:600;
+}
+.mode-switch button:hover{background:var(--hover);color:var(--text)}
+.mode-switch button[aria-pressed="true"]{
+  background:var(--surface);color:var(--text);
+  border:1px solid var(--border);box-shadow:0 1px 4px #00000012;
+}
+.reset-cookie{
+  background:var(--surface);color:var(--muted);
+  border:1px solid var(--border);border-radius:999px;
+  padding:8px 14px;font-size:11px;font-weight:560;
+}
+.reset-cookie:hover{background:var(--hover);color:var(--text)}
+
+/* Homepage: content has visual priority, no decoration behind it */
+.site-preview[data-theme="refined"]{
+  background:var(--bg);border-top:1px solid var(--border);
+  color:var(--text);
+}
+.site-preview[data-theme="refined"]::before,
+.site-preview[data-theme="refined"]::after{display:none;content:none}
+.site-preview[data-theme="refined"] .site-header{
+  background:var(--bg);border-bottom:1px solid var(--border);
+}
+.site-preview .site-logo{color:var(--text);font-weight:700;letter-spacing:-.5px}
+.site-preview .logo-accent{color:var(--text)}
+.site-preview .home-hero{padding-top:56px;padding-bottom:36px}
+.site-preview .home-hero p{
+  font:500 14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  color:var(--muted);letter-spacing:0;
+}
+.site-preview .folder-grid{width:min(100%,620px);gap:30px 24px}
+.site-preview .folder-item{color:var(--text)}
+.site-preview .folder-card{
+  height:194px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:19px;
+  box-shadow:var(--shadow-card);
+  transition:background-color .18s ease,box-shadow .18s ease,transform .18s ease;
+}
+.site-preview[data-theme="refined"] .folder-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:19px;
+  box-shadow:var(--shadow-card);
+}
+.site-preview[data-theme="refined"] .folder-card::after,
+.site-preview .folder-card::before{display:none;content:none}
+.site-preview .tool-tile,
+.site-preview[data-theme="refined"] .tool-tile{
+  border:0;border-radius:11px;box-shadow:none;
+  color:var(--tile-ink);
+  font:680 18px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  letter-spacing:-.35px;
+}
+.site-preview .tile-equals{background:var(--tile-1)}
+.site-preview .tile-ww{background:var(--tile-2)}
+.site-preview .tile-ca{background:var(--tile-3)}
+.site-preview .tile-pc{background:var(--tile-4)}
+.site-preview .tile-ar{background:var(--tile-5)}
+.site-preview .tile-mo{background:var(--tile-6)}
+.site-preview .tile-tp{background:var(--tile-7)}
+.site-preview .tile-ld{background:var(--tile-8)}
+.site-preview .folder-title{
+  font-size:15px;font-weight:650;letter-spacing:-.3px;
+  color:var(--text);
+  margin-top:-48px;
+}
+.site-preview .folder-arrow{font-size:15px;color:var(--muted);opacity:1}
+.site-preview .folder-item:hover .folder-card,
+.site-preview .folder-item:focus-visible .folder-card{
+  border-color:var(--border);background:var(--hover);
+  box-shadow:0 5px 16px #20212312;
+  transform:translateY(-2px);
+}
+html[data-mode="dark"] .site-preview .folder-item:hover .folder-card,
+html[data-mode="dark"] .site-preview .folder-item:focus-visible .folder-card{
+  box-shadow:0 5px 16px #00000030;
+}
+.site-preview .folder-item:active .folder-card{
+  transform:scale(.985);box-shadow:var(--shadow-card);
+}
+.site-preview .site-footer{border-top:1px solid var(--border)}
+.site-preview .footer-inner{
+  color:var(--muted);
+  font:450 11px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+}
+.site-preview[data-theme="refined"] .cookie-banner{
+  border:1px solid var(--border);border-radius:16px;
+  background:var(--surface);box-shadow:var(--shadow-dialog);
+}
+.site-preview[data-theme="refined"] .cookie-banner p{
+  font:440 12px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  color:var(--text);
+}
+.site-preview[data-theme="refined"] .cookie-actions button{
+  border:1px solid var(--border);background:var(--surface-2);color:var(--text);
+  border-radius:999px;
+  font:600 12px -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+}
+.site-preview[data-theme="refined"] .cookie-actions button[data-dismiss-cookie="accept"]{
+  background:var(--accent);color:var(--on-accent);border-color:var(--accent);
+}
+
+/* Dialog: plain modal with a tidy vertical tool list, not floating glass tiles */
+.modal-backdrop{
+  background:#00000065;
+  -webkit-backdrop-filter:none;backdrop-filter:none;
+  justify-content:center;
+}
+html[data-mode="dark"] .modal-backdrop{background:#000000af}
+.folder-dialog{
+  width:min(100%,560px);max-height:min(86dvh,760px);
+  background:var(--surface);color:var(--text);
+  border:1px solid var(--border);border-radius:22px;
+  box-shadow:var(--shadow-dialog);
+  padding:27px 27px 19px;
+  -webkit-backdrop-filter:none;backdrop-filter:none;
+}
+.folder-dialog__header{margin-bottom:19px}
+.folder-dialog__eyebrow{
+  color:var(--muted);font:600 10px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  letter-spacing:.7px;
+}
+.folder-dialog h2{font-size:clamp(22px,3vw,28px);font-weight:685;letter-spacing:-.9px}
+.folder-dialog__intro p{color:var(--muted);font-size:13px;margin-top:7px}
+.folder-dialog__close{
+  flex:0 0 38px;width:38px;height:38px;
+  border:0;border-radius:50%;
+  background:var(--surface-2);color:var(--muted);
+  font-size:23px;font-weight:400;
+}
+.folder-dialog__close:hover{background:var(--hover);color:var(--text);transform:none}
+.modal-tools{display:grid;grid-template-columns:1fr;gap:5px}
+.modal-tool{
+  position:relative;
+  display:grid;grid-template-columns:48px minmax(0,1fr) 18px;
+  grid-template-rows:auto auto;
+  column-gap:13px;row-gap:3px;
+  min-height:74px;padding:12px;border:0;border-radius:13px;
+  background:var(--surface);box-shadow:none;
+  text-align:left;color:var(--text);
+  transition:background-color .16s ease;
+}
+.modal-tool:hover,.modal-tool:focus-visible,
+html[data-mode="dark"] .modal-tool:hover{
+  background:var(--hover);box-shadow:none;transform:none;
+}
+.modal-tool:active{background:var(--surface-2);transform:none}
+.modal-tool__icon{
+  width:46px;height:46px;flex:none;
+  grid-column:1;grid-row:1/3;
+  display:grid;place-items:center;
+  font:670 13px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  border:0;border-radius:12px;
+  background:var(--tool-color);color:var(--tool-ink);
+  box-shadow:none;margin:0;align-self:center;
+}
+.modal-tool__content{
+  grid-column:2;grid-row:1/3;
+  display:flex;min-width:0;flex-direction:column;justify-content:center;gap:4px;
+}
+.modal-tool__name{font-size:13px;font-weight:650;line-height:1.3;letter-spacing:-.2px}
+.modal-tool__description{
+  margin:0;padding:0;color:var(--muted);max-width:none;
+  font-size:11px;line-height:1.35;
+}
+.modal-tool__arrow{
+  position:static;grid-column:3;grid-row:1/3;
+  align-self:center;justify-self:end;
+  color:var(--muted);font-size:16px;
+}
+.folder-dialog__foot{
+  border-top:1px solid var(--border);margin-top:17px;
+  color:var(--muted);font:450 11px -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+}
+.demo-toast{
+  border:1px solid var(--border);border-radius:14px;
+  background:var(--surface);color:var(--text);
+  box-shadow:var(--shadow-dialog);font-size:12px;font-weight:540;
+}
+
+/* Component Lab: same visual tokens as the homepage */
+.component-lab{
+  background:var(--bg);color:var(--text);
+  border-top:1px solid var(--border);
+}
+.component-lab::before,.component-lab::after{display:none;content:none}
+.kit-eyebrow{color:var(--muted);font-weight:600;letter-spacing:.7px}
+.kit-intro h2{font-weight:685;letter-spacing:-.9px}
+.kit-intro p:last-child{color:var(--muted)}
+.kit-badge,.kit-status,.kit-pill{
+  border:1px solid var(--border);border-radius:999px;
+  background:var(--surface-2);color:var(--muted);
+}
+.kit-card{
+  position:relative;
+  background:var(--surface);color:var(--text);
+  border:1px solid var(--border);border-radius:18px;
+  box-shadow:var(--shadow-card);
+}
+.kit-card::before{display:none;content:none}
+.kit-card h3{font-weight:650}
+.kit-field label{color:var(--text)}
+.kit-control{
+  min-height:44px;background:var(--surface);color:var(--text);
+  border:1px solid var(--border);border-radius:11px;
+}
+.kit-control:focus-visible{outline:2px solid var(--focus)}
+.kit-button,.kit-tab{
+  background:var(--surface-2);color:var(--text);
+  border:1px solid transparent;border-radius:999px;box-shadow:none;
+  font-weight:590;
+}
+.kit-button:hover,.kit-tab:hover{background:var(--hover);filter:none}
+.kit-button.primary,.kit-tab[aria-pressed="true"]{
+  background:var(--accent);color:var(--on-accent);
+  border-color:var(--accent);box-shadow:none;
+}
+html[data-mode="dark"] .kit-button:hover,html[data-mode="dark"] .kit-tab:hover{filter:none}
+.kit-result{
+  background:var(--surface-2);border:1px solid var(--border);border-radius:13px;
+}
+.kit-result__art{
+  background:var(--tile-2);color:var(--tile-ink);border-radius:11px;
+}
+.kit-result__muted,.kit-list__sub,.kit-note{color:var(--muted)}
+.kit-code{border:1px solid var(--border);background:var(--surface-2);border-radius:6px}
+.kit-list__item{border-bottom-color:var(--border)}
+
+/* Mobile: one quiet 2x2 home grid and a compact bottom sheet */
+@media(max-width:720px){
+  .demo-toolbar{padding:14px 14px;gap:12px}
+  .toolbar-name{font-size:17px}
+  .toolbar-hint{font-size:10px}
+  .mode-switch button{min-height:42px;padding:8px 12px}
+  .site-preview .home-hero{padding-top:35px;padding-bottom:32px}
+  .site-preview .home-hero p{font-size:13px}
+  .site-preview .folder-grid{width:100%;gap:22px 16px}
+  .site-preview .folder-card,
+  .site-preview[data-theme="refined"] .folder-card{
+    height:174px;padding:12px;border-radius:16px;
+  }
+  .site-preview .tool-tile,
+  .site-preview[data-theme="refined"] .tool-tile{
+    border-radius:10px;font-size:clamp(12px,3.7vw,16px);
+  }
+  .site-preview .folder-title{
+    margin-top:-48px;font-size:clamp(11px,3.35vw,14px);
+  }
+  .modal-backdrop{padding:0;align-items:flex-end}
+  .folder-dialog{
+    width:100%;max-width:none;max-height:min(89dvh,820px);
+    padding:25px 16px max(19px,env(safe-area-inset-bottom));
+    border-radius:20px 20px 0 0;border-bottom:0;
+    box-shadow:0 -16px 48px #0000002a;
+  }
+  .folder-dialog::before{
+    content:"";position:sticky;display:block;z-index:1;
+    top:-15px;width:36px;height:4px;margin:-15px auto 22px;
+    background:var(--border);border-radius:99px;opacity:1;pointer-events:none;
+  }
+  .modal-tools{grid-template-columns:1fr;gap:5px}
+  .modal-tool{
+    min-height:72px;padding:11px 10px;grid-template-columns:44px minmax(0,1fr) 18px;
+    column-gap:11px;
+  }
+  .modal-tool__icon{width:44px;height:44px}
+  .modal-tool__name{font-size:13px}
+  .modal-tool__description{font-size:11px}
+  .folder-dialog__close{width:44px;height:44px;flex-basis:44px}
+  .kit-card{border-radius:16px}
+}
+@media(max-width:360px){
+  .site-preview .folder-grid{gap:18px 12px}
+  .site-preview .folder-card,.site-preview[data-theme="refined"] .folder-card{
+    height:155px;padding:10px;
+  }
+  .site-preview .folder-title{font-size:11px}
+  .folder-dialog{padding-inline:13px}
+}
+@media(prefers-reduced-motion:reduce){
+  .folder-dialog{animation:none}
+}
+/* No glass effects, including on browsers where blur might be supported. */
+.site-preview .folder-card,.folder-dialog,.modal-tool,.kit-card,.mode-switch{
+  -webkit-backdrop-filter:none;backdrop-filter:none;
+}

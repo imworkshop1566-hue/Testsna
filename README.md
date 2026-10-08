@@ -1,72 +1,45 @@
-# ToolyTools — Soft Glass Style Lab
+# ToolyTools — Soft Minimal Style Lab
 
-A **local demo-only** design system under `F:\Project\ToolyToolsStyleDemo`.
-It does **not** modify the real https://toolytools.com website.
+This is a **local testing project** at `F:\Project\ToolyToolsStyleDemo`.
+The production website at https://toolytools.com is not modified.
+
+## Direction
+
+A calm, content-first, ChatGPT-inspired **Soft Minimal UI**, not a copy of
+ChatGPT branding or its exact screens. Flat neutral surfaces, good typography,
+unobtrusive borders, generous breathing room and rounded controls. No colored
+background patterns, transparency effects or hard-offset shadows.
+
+- Two appearance modes: Light and Dark. Both are defined in `minimal.css`.
+- The color preference persists using localStorage.
+- Homepage: four original ToolyTools folders, a 2x2 grid on phone and desktop.
+- Click a folder to open a clean, responsive tool-list dialog. Mobile uses
+  a simple bottom sheet. Close by close button, background click or Escape.
+- Tool list items display a demo notice; no real tool URL is invented.
+- Component Lab remains interactive: input, select, buttons, tabs and results.
+- Cookie banner is a demo, not an analytics integration.
 
 ## Open
 
-Double-click `index.html` in Edge/Chrome. No server, dependencies,
-image packs, third-party fonts or build tools required.
-
-The active style is **Soft Glass**, an iOS-inspired (not an Apple product) visual language: ultra-transparent frosted surfaces, visible CSS-only geometric patterns and multicolor light behind glass, generous radii, blue/cyan/lavender gradients, pill controls and soft specular highlights.
-It supports **Light** and **Dark** without changing the UI structure.
-Two modes, **Light** and **Dark**, share the exact same layout and components.
-
-- Switch Light / Dark in the demo toolbar.
-- Selected mode is stored in localStorage under `toolytools-refined-mode`.
-- On first visit, the browser's system color preference is respected.
-- The actual homepage preview keeps the original four categories in one row;
-  on mobile all four folders appear in a 2×2 grid. The toolbar is demo-only.
-- Click or tap any of the four folders to open a responsive modal with its tool cards.
-- Close the folder with ×, Escape or the backdrop. Focus returns to the previous folder.
-- Tool cards are a UI demo; they show a message rather than navigating to invented destinations.
-- Below the homepage is a Component Lab with working form inputs, buttons,
-  status badges, cards, sample result and tabs.
-- Cookie actions are demonstration UI (not connected to real analytics).
+Double-click `index.html` on your computer, or visit the testing-only
+GitHub Pages site at https://imworkshop1566-hue.github.io/Testsna/
 
 ## Files
 
-- `index.html` — single clean demo + homepage + component specimens.
-- `styles.css` — responsive homepage foundation,
-  and component structure. Layout independent of color mode.
-- `refined.css` — the single reusable visual system (Light & Dark).
-- `refined.js` — appearance persistence, responsive folder dialog,
-  keyboard/focus handling, cookie demo and interactive specimen.
-- `interaction.css` — 2×2 folder layout and responsive dialog structure.
-- `glass.css` — **active Soft Glass skin**: translucent cards, soft gradients,
-  pill buttons, subtle shadows and a mobile bottom sheet.
-- `refined.css` — original underlying token layer retained for easy rollback;
-  `glass.css` overrides it.
-- `README.md` — this guide.
+- `index.html` — local style demo, homepage and Component Lab.
+- `styles.css` — structural layout and responsive base.
+- `interaction.css` — folder and dialog structural layout.
+- `minimal.css` — active design system tokens, surfaces and Light/Dark states.
+- `refined.js` — modal, accessibility, localStorage and component interactions.
+- `README.md` — this file.
 
-Keep `.git` and `.serena` for development/tool configuration.
-No historical style packages, galleries, screenshots or ZIPs are required.
+Only local/static HTML/CSS/JavaScript; no build or third-party dependencies.
 
-## Core tokens
+## Reusable design tokens
 
-Active palette tokens defined in `glass.css` on `html[data-mode="light"]`
-and `html[data-mode="dark"]`:
+Semantic tokens in `minimal.css`: `--bg`, `--surface`,
+`--surface-2`, `--text`, `--muted`, `--border`, `--accent`,
+`--on-accent`, `--focus`, `--ds-*`.
 
-| Token | Purpose |
-| --- | --- |
-| `--bg`, `--surface`, `--surface-2` | Page and card backgrounds |
-| `--text`, `--muted` | Readable foreground colors |
-| `--glass-surface`, `--glass-border` | Transparent frosted glass surfaces / thin borders |
-| `--accent`, `--on-accent` | Primary action and contrast text |
-| `--folder-1..4`, `--tile-1..8` | Four folders and eight tool tiles |
-| `--radius-lg`, `--radius-md` | Soft rounded corners |
-| `--glass-shadow`, `--shadow-tile` | Soft diffuse shadows |
-| `--ds-*` | Semantic aliases for use in future tool pages |
-
-## Development roadmap
-
-1. **Foundation:** refine contrast, radii, typography, elevation and spacing
-   while retaining ToolyTools' homepage structure.
-2. **Interactive components:** formalize Button, Input, Select, Tabs, Toast,
-   Dialog, Preview Panel and accessibility states.
-3. **First real tool migration:** test the system on Workout Wallpaper Generator,
-   including mobile layout and Light/Dark controls.
-4. **Cross-tool adoption:** reuse tokens and components in future GPX, fitness,
-   calculator and developer tools.
-
-No production changes are performed by this demo.
+The priority for further development is real product usability, contrast,
+small-screen readability, meaningful hover/focus feedback and consistent tools.

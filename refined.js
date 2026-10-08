@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * ToolyTools / Refined Neo-Brutalism
+ * ToolyTools / Soft Minimalism
  * Only Light and Dark. Uses CSS semantic variables for every part of this demo.
  * No dependencies, third-party libraries, or live ToolyTools changes.
  */
@@ -58,7 +58,7 @@ cookieReset.addEventListener("click", () => {
   try { localStorage.removeItem(STORAGE_CONSENT); } catch (_) {}
 });
 
-// Refined Neo-Brutalism folder overlay — four folders, keyboard/focus support.
+// Soft Minimal folder overlay — four folders, keyboard/focus support.
 // Tool cards intentionally remain demo-only and never navigate to guessed URLs.
 const folderData = {
   utilities: {
@@ -104,7 +104,9 @@ let lastFocusedFolder = null;
 function openFolder(folderId) {
   const entry = folderData[folderId];
   if (!entry) return;
-  lastFocusedFolder = document.activeElement;
+  // Restore focus to the actual opener even on touch devices, where a tap
+  // does not always move document.activeElement onto the clicked button.
+  lastFocusedFolder = folderButtons.find(button => button.dataset.folder === folderId) || document.activeElement;
   folderTitle.textContent = entry.title;
   folderDescription.textContent = entry.description;
   folderCount.textContent = entry.tools.length + (entry.tools.length === 1 ? " tool" : " tools");
@@ -130,7 +132,10 @@ function openFolder(folderId) {
     arrow.className = "modal-tool__arrow";
     arrow.setAttribute("aria-hidden","true");
     arrow.textContent = "↗";
-    card.append(tile,label,detail,arrow);
+    const content = document.createElement("span");
+    content.className = "modal-tool__content";
+    content.append(label,detail);
+    card.append(tile,content,arrow);
     card.addEventListener("click", () => {
       toast.textContent = name + " · หน้านี้เป็นตัวอย่าง UI ยังไม่ได้เชื่อมต่อเครื่องมือจริง";
       toast.hidden = false;

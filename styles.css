@@ -1,6 +1,6 @@
-/* ToolyTools — Refined Neo-Brutalism Layout Foundation.
+/* ToolyTools — Responsive Layout Foundation.
    Stable geometry for the original site + reusable component specimen.
-   Palette and surface styling are defined exclusively in refined.css. */
+   Palette and surface styling are defined exclusively in minimal.css. */
 *{box-sizing:border-box}
 html{min-width:280px}
 body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif}

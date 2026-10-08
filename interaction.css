@@ -44,7 +44,7 @@
 .site-preview .folder-item:focus-visible .folder-card{border-color:var(--accent)}
 .site-preview .site-preview,.site-preview .folder-item{touch-action:manipulation}
 
-/* Realistic centered dialog with blurred backdrop and dense, clickable cards. */
+/* Responsive folder dialog; final look is provided by minimal.css. */
 body.folder-dialog-open{overflow:hidden}
 .modal-backdrop{
   position:fixed;inset:0;z-index:200;
