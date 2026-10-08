@@ -8,7 +8,7 @@ It does **not** modify the real https://toolytools.com website.
 Double-click `index.html` in Edge/Chrome. No server, dependencies,
 image packs, third-party fonts or build tools required.
 
-Only **one design style** exists: Refined Neo-Brutalism.
+Only **one design style** exists: Refined Neo-Brutalism — **Cool Slate** palette (clean cool white, muted slate blue, teal; no cream/orange).
 Two modes, **Light** and **Dark**, share the exact same layout and components.
 
 - Switch Light / Dark in the demo toolbar.
@@ -46,7 +46,7 @@ and `html[data-mode="dark"]`:
 | --- | --- |
 | `--bg`, `--surface`, `--surface-2` | Page and card backgrounds |
 | `--text`, `--muted` | Readable foreground colors |
-| `--border`, `--shadow-ink` | 2px ink borders and compact offset shadow |
+| `--border`, `--shadow-ink` | 1.5px cool slate ink borders and subtle offset shadow |
 | `--accent`, `--on-accent` | Primary action and contrast text |
 | `--folder-1..4`, `--tile-1..8` | Four folders and eight tool tiles |
 | `--radius-lg`, `--radius-md` | Corner sizes |

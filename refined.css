@@ -2,41 +2,42 @@
    Design tokens are shared by homepage and future ToolyTools tools.
    Colors, borders and shadows live here; all dimensions/layout in styles.css. */
 
+/* Cool Slate v2: clean neutral surfaces, muted steel blue and calm teal.
+   Two appearances of the same Refined Neo-Brutalism design system. */
 :root,
 html[data-mode="light"]{
   color-scheme:light;
-  --bg:#f3f0e9;
-  --surface:#fffcf7;
-  --surface-2:#e9e6dd;
-  --text:#23282c;
-  --muted:#626d70;
-  --border:#293034;
-  --accent:#bf6942;
-  --accent-2:#a7bdb6;
+  --bg:#f6f8fa;
+  --surface:#ffffff;
+  --surface-2:#edf2f6;
+  --text:#23313d;
+  --muted:#627380;
+  --border:#758999;
+  --accent:#365f7d;
+  --accent-2:#b5ccd3;
   --on-accent:#ffffff;
-  --shadow-ink:#293034;
-  --site-glow:linear-gradient(165deg,#faf8f3 0%,#f3f0e9 67%,#eeebe4 100%);
-  --folder-1:#c3d0ca;
-  --folder-2:#d9b6a4;
-  --folder-3:#b7c5d3;
-  --folder-4:#d1c5b5;
-  --tile-1:#536d65;
-  --tile-2:#ac6243;
-  --tile-3:#607984;
-  --tile-4:#a36649;
-  --tile-5:#567962;
-  --tile-6:#646f91;
-  --tile-7:#467c89;
-  --tile-8:#7d6958;
+  --shadow-ink:#9eafbccc;
+  --site-glow:linear-gradient(160deg,#fcfdfe 0%,#f6f8fa 55%,#f0f4f6 100%);
+  --folder-1:#e6ebef;
+  --folder-2:#e2e9ef;
+  --folder-3:#e0ebec;
+  --folder-4:#e8eaee;
+  --tile-1:#52697a;
+  --tile-2:#557993;
+  --tile-3:#6c8291;
+  --tile-4:#4d7188;
+  --tile-5:#577f7d;
+  --tile-6:#687a97;
+  --tile-7:#4d8090;
+  --tile-8:#5f7383;
   --tile-ink:#ffffff;
-  --radius-lg:13px;
+  --radius-lg:12px;
   --radius-md:7px;
-  --shadow-card:3px 3px 0 var(--shadow-ink);
-  --shadow-tile:1px 1px 0 #29303475;
-  --card-border:2px solid var(--border);
+  --shadow-card:2px 3px 0 var(--shadow-ink);
+  --shadow-tile:1px 1px 0 #667d8d66;
+  --card-border:1.5px solid var(--border);
   --tile-border:1px solid var(--border);
   --transition:180ms ease;
-
   --ds-bg:var(--bg);
   --ds-surface:var(--surface);
   --ds-surface-alt:var(--surface-2);
@@ -45,42 +46,41 @@ html[data-mode="light"]{
   --ds-border:var(--border);
   --ds-accent:var(--accent);
   --ds-on-accent:var(--on-accent);
-  --ds-positive:#2f7562;
+  --ds-positive:#3c756a;
   --ds-radius:var(--radius-lg);
   --ds-shadow:var(--shadow-card);
-  --ds-focus:#a34f2a;
+  --ds-focus:#315f88;
 }
 html[data-mode="dark"]{
   color-scheme:dark;
-  --bg:#171b1e;
-  --surface:#232a2f;
-  --surface-2:#30393e;
-  --text:#f2efe8;
-  --muted:#bdbab1;
-  --border:#d8d0c4;
-  --accent:#dc895d;
-  --accent-2:#86a69f;
-  --on-accent:#1b1d1f;
-  --shadow-ink:#b9b1a7;
-  --site-glow:linear-gradient(155deg,#252a2d 0%,#171b1e 61%,#131719 100%);
-  --folder-1:#354940;
-  --folder-2:#604b42;
-  --folder-3:#344751;
-  --folder-4:#554a41;
-  --tile-1:#a1c0b3;
-  --tile-2:#eba77f;
-  --tile-3:#99b6bf;
-  --tile-4:#e0ab86;
-  --tile-5:#acc7a9;
-  --tile-6:#b4b7db;
-  --tile-7:#a2cbd0;
-  --tile-8:#cebcaa;
-  --tile-ink:#1d292b;
-  --shadow-card:3px 3px 0 var(--shadow-ink);
-  --shadow-tile:1px 1px 0 #ebe0d16a;
-
-  --ds-positive:#a7d4b8;
-  --ds-focus:#f1ad81;
+  --bg:#141b21;
+  --surface:#1e2932;
+  --surface-2:#2a3842;
+  --text:#eaf0f4;
+  --muted:#acbec9;
+  --border:#8295a2;
+  --accent:#91bdd5;
+  --accent-2:#527887;
+  --on-accent:#182833;
+  --shadow-ink:#091218;
+  --site-glow:linear-gradient(165deg,#1a252d 0%,#141b21 60%,#11171c 100%);
+  --folder-1:#2c3b46;
+  --folder-2:#324352;
+  --folder-3:#2c4548;
+  --folder-4:#36404b;
+  --tile-1:#abc2d0;
+  --tile-2:#9bbfd5;
+  --tile-3:#a6bac7;
+  --tile-4:#a0c5d7;
+  --tile-5:#9dc4bf;
+  --tile-6:#b4bfd6;
+  --tile-7:#96c5cc;
+  --tile-8:#b0c2cf;
+  --tile-ink:#152531;
+  --shadow-card:2px 3px 0 var(--shadow-ink);
+  --shadow-tile:1px 1px 0 #071117a6;
+  --ds-positive:#99cec1;
+  --ds-focus:#a1d3ee;
 }
 
 /* Demo toolbar shares the actual system so switching previews everything. */
@@ -94,7 +94,7 @@ body{background:var(--bg);color:var(--text);transition:background-color var(--tr
 .mode-switch button:hover{background:var(--surface)}
 .mode-switch button[aria-pressed="true"]{
   background:var(--accent);color:var(--on-accent);border-color:var(--border);
-  box-shadow:2px 2px 0 var(--shadow-ink);
+  box-shadow:1px 2px 0 var(--shadow-ink);
 }
 .reset-cookie{border-color:var(--border);background:var(--surface);color:var(--text)}
 .reset-cookie:hover{background:var(--surface-2)}
@@ -106,7 +106,7 @@ body{background:var(--bg);color:var(--text);transition:background-color var(--tr
   border-top-color:var(--border);
 }
 .site-preview[data-theme="refined"] .site-header{
-  border-bottom:2px solid var(--border);
+  border-bottom:1px solid var(--border);
   background:var(--surface);
 }
 .site-preview[data-theme="refined"] .logo-accent{color:var(--accent)}
@@ -152,7 +152,7 @@ body{background:var(--bg);color:var(--text);transition:background-color var(--tr
 }
 @media(hover:hover) and (min-width:721px) {
  .site-preview[data-theme="refined"] .folder-card:hover{
-   transform:translateY(-2px);box-shadow:3px 5px 0 var(--shadow-ink);
+   transform:translateY(-2px);box-shadow:2px 4px 0 var(--shadow-ink);
  }
 }
 
@@ -174,7 +174,7 @@ body{background:var(--bg);color:var(--text);transition:background-color var(--tr
 .kit-button{color:var(--ds-text);background:var(--ds-surface-alt);border-color:var(--ds-border)}
 .kit-button.primary{
   background:var(--ds-accent);color:var(--ds-on-accent);border-color:var(--ds-border);
-  box-shadow:2px 2px 0 var(--shadow-ink);
+  box-shadow:1px 2px 0 var(--shadow-ink);
 }
 .kit-button:hover,.kit-tab:hover{filter:brightness(.96)}
 html[data-mode="dark"] .kit-button:hover,html[data-mode="dark"] .kit-tab:hover{filter:brightness(1.12)}
