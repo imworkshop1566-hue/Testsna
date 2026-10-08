@@ -4,15 +4,21 @@
    This file intentionally overrides the previous Neo-Brutalism skin. */
 :root,html[data-mode="light"]{
   color-scheme:light;
-  --bg:#f4f7fc;--surface:#ffffff;--surface-2:#edf3fa;
+  --bg:#edf5ff;--surface:#ffffff;--surface-2:#f3f9ff;
   --text:#1c2a38;--muted:#63768a;--border:#d9e4f0;
   --accent:#1268c9;--accent-2:#a4d2ef;--on-accent:#ffffff;
   --shadow-ink:#aabacf3d;
   --site-glow:
-    radial-gradient(ellipse 58% 45% at 3% 25%,#cee8ffcc,transparent 76%),
-    radial-gradient(ellipse 65% 55% at 98% 40%,#d8d6f6ae,transparent 76%),
-    radial-gradient(ellipse 68% 44% at 58% 96%,#cfefe9a8,transparent 76%),
-    linear-gradient(155deg,#f9fbfe,#eff5fd 58%,#f9fbfc);
+    radial-gradient(ellipse 35% 40% at 12% 27%,#91c9ffcc,transparent 92%),
+    radial-gradient(ellipse 36% 40% at 89% 35%,#c9b6ffb3,transparent 92%),
+    radial-gradient(ellipse 38% 41% at 58% 85%,#8cead1a3,transparent 92%),
+    linear-gradient(135deg,#eff8ff 0%,#eaf2ff 50%,#f4faff 100%);
+  --pattern-ink:#649cc92d;
+  --pattern-ring:#6eacf089;
+  --pattern-ring-alt:#bba0f279;
+  --pattern-sash:#79c8e84d;
+  --pattern-grid:#416b9829;
+  --pattern-grid-light:#ffffffa3;
   --folder-1:#eaf2fc;--folder-2:#e8f4fc;
   --folder-3:#e7f5f1;--folder-4:#edf0fb;
   --tile-1:linear-gradient(145deg,#507ab8,#395e97);
@@ -25,15 +31,15 @@
   --tile-8:linear-gradient(145deg,#7799c5,#577eaa);
   --tile-ink:#fff;
   --radius-lg:26px;--radius-md:13px;
-  --shadow-card:0 12px 32px #4d74921a,0 2px 7px #7390b10b;
+  --shadow-card:0 14px 40px #4d74922b,0 3px 10px #7390b11a;
   --shadow-tile:0 5px 14px #244b7b22,inset 0 1px 0 #ffffff40;
   --card-border:1px solid #ffffffd9;
   --tile-border:1px solid #ffffff55;
-  --glass-surface:#ffffffad;--glass-surface-strong:#ffffffdf;
-  --glass-surface-soft:#ffffff91;--glass-border:#ffffffd9;
-  --glass-shadow:0 18px 50px #3a5d831f,0 3px 14px #496b8710;
-  --glass-ring:#ffffffc7;
-  --glass-backdrop:blur(22px) saturate(1.45);
+  --glass-surface:#ffffff4d;--glass-surface-strong:#ffffff78;
+  --glass-surface-soft:#ffffff3d;--glass-border:#ffffffc9;
+  --glass-shadow:0 20px 62px #3a5d8329,0 5px 18px #496b8716;
+  --glass-ring:#ffffffed;
+  --glass-backdrop:blur(30px) saturate(1.65);
   --ds-bg:var(--bg);--ds-surface:var(--glass-surface-strong);
   --ds-surface-alt:#f0f5fb;--ds-text:var(--text);
   --ds-muted:var(--muted);--ds-border:#d9e4ef;--ds-accent:var(--accent);
@@ -43,15 +49,21 @@
 }
 html[data-mode="dark"]{
   color-scheme:dark;
-  --bg:#101823;--surface:#1e2b3b;--surface-2:#28384c;
+  --bg:#0d1725;--surface:#17283d;--surface-2:#243b53;
   --text:#f4f8fd;--muted:#aec0d3;--border:#50637a;
   --accent:#81c1ff;--accent-2:#376c99;--on-accent:#0d263c;
   --shadow-ink:#050c18a6;
   --site-glow:
-    radial-gradient(ellipse 56% 42% at 4% 23%,#204772a8,transparent 76%),
-    radial-gradient(ellipse 66% 52% at 97% 40%,#39407083,transparent 78%),
-    radial-gradient(ellipse 64% 43% at 63% 96%,#164a5577,transparent 78%),
-    linear-gradient(145deg,#111b28,#182739 57%,#0f1a26);
+    radial-gradient(ellipse 35% 40% at 12% 27%,#246facb3,transparent 90%),
+    radial-gradient(ellipse 39% 43% at 91% 35%,#69509da0,transparent 90%),
+    radial-gradient(ellipse 35% 42% at 55% 88%,#147b8b9c,transparent 90%),
+    linear-gradient(135deg,#0a1626 0%,#162539 50%,#101c2b 100%);
+  --pattern-ink:#84c4ee2e;
+  --pattern-ring:#4aa2efaa;
+  --pattern-ring-alt:#9885df87;
+  --pattern-sash:#4eaae85b;
+  --pattern-grid:#81b7df2d;
+  --pattern-grid-light:#d2ecff1d;
   --folder-1:#253b55;--folder-2:#28485b;
   --folder-3:#244b50;--folder-4:#333b5b;
   --tile-1:linear-gradient(145deg,#648fc9,#3e679f);
@@ -68,11 +80,11 @@ html[data-mode="dark"]{
   --shadow-tile:0 5px 14px #00000037,inset 0 1px 0 #ffffff47;
   --card-border:1px solid #ffffff27;
   --tile-border:1px solid #ffffff44;
-  --glass-surface:#283c53b0;--glass-surface-strong:#273749f2;
-  --glass-surface-soft:#284052a1;--glass-border:#eaf4ff2b;
-  --glass-shadow:0 20px 55px #020916a8,0 3px 12px #02091673;
-  --glass-ring:#ffffff29;
-  --glass-backdrop:blur(24px) saturate(1.3);
+  --glass-surface:#243e5752;--glass-surface-strong:#213b5680;
+  --glass-surface-soft:#29455f47;--glass-border:#edf8ff38;
+  --glass-shadow:0 25px 70px #020916a8,0 5px 16px #02091683;
+  --glass-ring:#ffffff52;
+  --glass-backdrop:blur(30px) saturate(1.55);
   --ds-bg:var(--bg);--ds-surface:var(--glass-surface-strong);
   --ds-surface-alt:#304357;--ds-text:var(--text);
   --ds-muted:var(--muted);--ds-border:#5f738a;--ds-accent:var(--accent);
@@ -185,16 +197,16 @@ body{
 /* Soft frosted dialogs, system-like controls and translucent tool cells */
 .modal-backdrop{
   justify-content:center;
-  background:#1e31465a;
-  -webkit-backdrop-filter:blur(12px) saturate(1.25);backdrop-filter:blur(12px) saturate(1.25);
+  background:#17345546;
+  -webkit-backdrop-filter:blur(5px) saturate(1.12);backdrop-filter:blur(5px) saturate(1.12);
 }
-html[data-mode="dark"] .modal-backdrop{background:#020815a8}
+html[data-mode="dark"] .modal-backdrop{background:#02081583}
 .folder-dialog{
   width:min(100%,670px);
   background:var(--glass-surface-strong);
   border:1px solid var(--glass-border);border-radius:29px;
-  box-shadow:0 32px 90px #112e4a3a,0 9px 28px #233f5c1d,inset 0 1px 0 var(--glass-ring);
-  -webkit-backdrop-filter:blur(30px) saturate(1.5);backdrop-filter:blur(30px) saturate(1.5);
+  box-shadow:0 33px 95px #112e4a49,0 9px 28px #233f5c2a,inset 0 1px 0 var(--glass-ring);
+  -webkit-backdrop-filter:blur(30px) saturate(1.8);backdrop-filter:blur(30px) saturate(1.8);
 }
 .folder-dialog__eyebrow{color:var(--accent);font-family:inherit;letter-spacing:1.2px}
 .folder-dialog h2{font-weight:760;letter-spacing:-1.1px}
@@ -210,6 +222,7 @@ html[data-mode="dark"] .modal-backdrop{background:#020815a8}
 .modal-tool,html[data-mode="dark"] .modal-tool{
   border:1px solid var(--glass-border);border-radius:20px;
   background:var(--glass-surface-soft);
+  -webkit-backdrop-filter:blur(21px) saturate(1.5);backdrop-filter:blur(21px) saturate(1.5);
   box-shadow:0 6px 20px #355d7814,inset 0 1px 0 var(--glass-ring);
 }
 .modal-tool:hover,.modal-tool:focus-visible,html[data-mode="dark"] .modal-tool:hover{
@@ -310,4 +323,141 @@ html[data-mode="dark"] .modal-backdrop{background:#020815a8}
 }
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
  .site-preview .folder-card,.folder-dialog,.kit-card,.modal-tool{background:var(--surface)}
+}
+
+
+/* Glass depth. Pattern is BEHIND the frosted cards within each painting area.
+   Body alone is insufficient because .site-preview paints its own background. */
+body{
+  background-image:var(--site-glow);
+  background-attachment:fixed;
+}
+.site-preview[data-theme="refined"]{
+  isolation:isolate;
+  position:relative;
+  background:var(--site-glow);
+}
+.site-preview[data-theme="refined"]::before{
+  content:"";
+  pointer-events:none;position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(circle at 17% 28%,transparent 0 54px,var(--pattern-ring) 56px 68px,transparent 70px),
+    radial-gradient(circle at 82% 52%,transparent 0 93px,var(--pattern-ring-alt) 95px 107px,transparent 109px),
+    radial-gradient(circle at 51% 81%,transparent 0 68px,var(--pattern-sash) 70px 87px,transparent 89px),
+    linear-gradient(122deg,transparent 15%,var(--pattern-sash) 19%,transparent 28%,transparent 60%,var(--pattern-sash) 68%,transparent 76%),
+    repeating-linear-gradient(0deg,transparent 0 56px,var(--pattern-grid) 57px 58px,transparent 59px 113px),
+    repeating-linear-gradient(90deg,transparent 0 56px,var(--pattern-grid) 57px 58px,transparent 59px 113px);
+  opacity:.85;
+}
+.site-preview[data-theme="refined"] > .site-header,
+.site-preview[data-theme="refined"] > .home-screen,
+.site-preview[data-theme="refined"] > .site-footer{
+  position:relative;z-index:1;
+}
+/* Fine diagonal etching and blurred color behind the tool page specimens */
+.component-lab{
+  position:relative;isolation:isolate;
+  background:
+    radial-gradient(ellipse 30% 43% at 17% 28%,var(--pattern-ring-alt),transparent 94%),
+    radial-gradient(ellipse 38% 50% at 85% 82%,var(--pattern-sash),transparent 93%);
+}
+.component-lab::before{
+  content:"";pointer-events:none;position:absolute;inset:0;z-index:0;
+  background:
+    repeating-linear-gradient(130deg,transparent 0 51px,var(--pattern-ink) 52px,transparent 53px 103px),
+    radial-gradient(circle at 70% 28%,transparent 0 101px,var(--pattern-ring) 103px 116px,transparent 118px);
+  opacity:.6;
+}
+.component-lab__inner{position:relative;z-index:1}
+
+/* Ultra clear glass, but with sharp specular reflections and readable labels */
+.site-preview[data-theme="refined"] .folder-card,
+.site-preview .folder-card{
+  background:var(--glass-surface);border:1px solid var(--glass-border);
+  border-radius:28px;
+  box-shadow:var(--glass-shadow),inset 0 1px 0 var(--glass-ring);
+  -webkit-backdrop-filter:var(--glass-backdrop);
+  backdrop-filter:var(--glass-backdrop);
+}
+.site-preview .folder-card::before,
+.modal-tool::before,
+.kit-card::before{
+  content:"";position:absolute;inset:1px;pointer-events:none;
+  border-radius:inherit;z-index:0;
+  background:linear-gradient(166deg,#ffffff42,transparent 39%,transparent 82%,#ffffff12);
+}
+html[data-mode="dark"] .site-preview .folder-card::before,
+html[data-mode="dark"] .modal-tool::before,
+html[data-mode="dark"] .kit-card::before{
+  background:linear-gradient(166deg,#ffffff17,transparent 38%,transparent 83%,#ffffff09);
+}
+.site-preview .folder-card > *,
+.modal-tool > .modal-tool__icon,
+.modal-tool > .modal-tool__name,
+.modal-tool > .modal-tool__description,
+.kit-card > *{position:relative;z-index:1}
+.modal-tool > .modal-tool__arrow{position:absolute;z-index:1}
+.site-preview .folder-item:hover .folder-card,
+.site-preview .folder-item:focus-visible .folder-card{
+  background:var(--glass-surface-strong);
+  box-shadow:0 18px 48px #244f7c3b,inset 0 1px 0 var(--glass-ring);
+}
+.folder-dialog{
+  background:var(--glass-surface-strong);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--glass-shadow),inset 0 1px 0 var(--glass-ring);
+  -webkit-backdrop-filter:blur(30px) saturate(1.8);
+  backdrop-filter:blur(30px) saturate(1.8);
+}
+.modal-tool,html[data-mode="dark"] .modal-tool{
+  position:relative;
+  background:var(--glass-surface-soft);
+  -webkit-backdrop-filter:blur(21px) saturate(1.5);
+  backdrop-filter:blur(21px) saturate(1.5);
+}
+.kit-card{
+  position:relative;background:var(--glass-surface);border:1px solid var(--glass-border);
+}
+.mode-switch,.reset-cookie,.kit-button:not(.primary),.kit-tab,
+.site-preview[data-theme="refined"] .cookie-actions button:not([data-dismiss-cookie="accept"]){
+  background:var(--glass-surface);
+  border-color:var(--glass-border);
+  -webkit-backdrop-filter:blur(20px) saturate(1.45);
+  backdrop-filter:blur(20px) saturate(1.45);
+}
+.mode-switch button[aria-pressed="true"],
+.kit-tab[aria-pressed="true"]{
+  background:var(--glass-surface-strong);
+  color:var(--text);
+}
+/* Accent buttons are intentionally opaque for legible, accessible actions */
+.kit-button.primary,
+.site-preview[data-theme="refined"] .cookie-actions button[data-dismiss-cookie="accept"]{
+  background:linear-gradient(180deg,#4b9bf4,#2772cf);
+  color:#fff;border:0;box-shadow:0 8px 18px #236dba3b;
+}
+html[data-mode="dark"] .kit-button.primary,
+html[data-mode="dark"] .site-preview[data-theme="refined"] .cookie-actions button[data-dismiss-cookie="accept"]{
+  background:linear-gradient(180deg,#8acbff,#66a9e5);
+  color:#10253b;
+}
+/* Button state takes precedence over the transparent inactive appearance */
+.kit-tab[aria-pressed="true"]{
+  background:var(--accent);color:var(--on-accent);border-color:transparent;
+}
+.mode-switch button[aria-pressed="true"]{
+  background:var(--glass-surface-strong);color:var(--text);
+}
+@media(max-width:720px){
+  .site-preview[data-theme="refined"]::before{
+    background:
+      radial-gradient(circle at 26% 31%,transparent 0 43px,var(--pattern-ring) 45px 57px,transparent 59px),
+      radial-gradient(circle at 76% 61%,transparent 0 54px,var(--pattern-ring-alt) 56px 68px,transparent 70px),
+      linear-gradient(132deg,transparent 27%,var(--pattern-sash) 33%,transparent 43%),
+      repeating-linear-gradient(0deg,transparent 0 49px,var(--pattern-grid) 50px 51px,transparent 52px 100px),
+      repeating-linear-gradient(90deg,transparent 0 49px,var(--pattern-grid) 50px 51px,transparent 52px 100px);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .site-preview[data-theme="refined"] .folder-card{transition:none}
 }

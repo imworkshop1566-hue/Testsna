@@ -8,7 +8,7 @@ It does **not** modify the real https://toolytools.com website.
 Double-click `index.html` in Edge/Chrome. No server, dependencies,
 image packs, third-party fonts or build tools required.
 
-The active style is **Soft Glass**, an iOS-inspired (not an Apple product) visual language: translucent surfaces, frosted blur, generous radii, soft blue/cyan/lavender gradients, pill controls and understated shadows.
+The active style is **Soft Glass**, an iOS-inspired (not an Apple product) visual language: ultra-transparent frosted surfaces, visible CSS-only geometric patterns and multicolor light behind glass, generous radii, blue/cyan/lavender gradients, pill controls and soft specular highlights.
 It supports **Light** and **Dark** without changing the UI structure.
 Two modes, **Light** and **Dark**, share the exact same layout and components.
 
