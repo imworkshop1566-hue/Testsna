@@ -19,15 +19,16 @@
   --folder-2:#f1f5f8;
   --folder-3:#f0f5f1;
   --folder-4:#f5f2f7;
-  --tile-1:#e2e3e5;
-  --tile-2:#dfebf3;
-  --tile-3:#e7edf1;
-  --tile-4:#dee9f0;
-  --tile-5:#dcece1;
-  --tile-6:#e7e4f2;
-  --tile-7:#daeaef;
-  --tile-8:#e6e4ee;
-  --tile-ink:#526374;
+  /* High-contrast, solid-color tool identities; white labels across modes. */
+  --tile-1:#475569; /* Calculator — slate */
+  --tile-2:#2563eb; /* Workout Wallpaper — blue */
+  --tile-3:#7c3aed; /* CA Tool — violet */
+  --tile-4:#0369a1; /* Pace Calculator — ocean */
+  --tile-5:#15803d; /* AFTERRUN — green */
+  --tile-6:#4338ca; /* Monthy — indigo */
+  --tile-7:#be185d; /* Taper — berry */
+  --tile-8:#334155; /* LD Tool — graphite */
+  --tile-ink:#ffffff;
   --category-blue:#577c99;
   --category-green:#5e8873;
   --category-purple:#82739a;
@@ -48,15 +49,16 @@ html[data-mode="dark"] {
   --folder-2:#26313a;
   --folder-3:#25342d;
   --folder-4:#302c38;
-  --tile-1:#414347;
-  --tile-2:#3a5060;
-  --tile-3:#45515b;
-  --tile-4:#3a5260;
-  --tile-5:#3b5649;
-  --tile-6:#504860;
-  --tile-7:#3b525d;
-  --tile-8:#4b465b;
-  --tile-ink:#d9e1e8;
+  /* Preserve recognizable app color in Dark mode, without glowing/neon cards. */
+  --tile-1:#475569;
+  --tile-2:#1d4ed8;
+  --tile-3:#6d28d9;
+  --tile-4:#0e7490;
+  --tile-5:#15803d;
+  --tile-6:#4338ca;
+  --tile-7:#be185d;
+  --tile-8:#334155;
+  --tile-ink:#ffffff;
   --category-blue:#93b7d4;
   --category-green:#a0d2b1;
   --category-purple:#baa9d4;
@@ -162,8 +164,9 @@ body { letter-spacing:-.01em }
 .site-preview .folder-item:nth-child(4){--folder-color:var(--folder-4);--folder-accent:var(--category-purple)}
 .site-preview .tool-tile,.site-preview[data-theme="refined"] .tool-tile{
   width:55px;height:55px;
-  border:0;border-radius:13px;box-shadow:none;
-  font-size:15px;font-weight:690;letter-spacing:-.035em;
+  border:0;border-radius:13px;
+  box-shadow:0 2px 6px #11182720;
+  font-size:15px;font-weight:740;letter-spacing:-.035em;
   color:var(--tile-ink);
 }
 .site-preview .folder-info{
@@ -212,7 +215,10 @@ body { letter-spacing:-.01em }
 .folder-dialog__intro p{max-width:400px}
 .modal-tools{gap:3px}
 .modal-tool{min-height:74px;padding:12px 10px;border-radius:12px}
-.modal-tool__icon{background:var(--tool-color);color:var(--tool-ink)}
+.modal-tool__icon{
+  background:var(--tool-color);color:var(--tool-ink);
+  font-weight:740;box-shadow:0 1px 4px #1118271a;
+}
 .modal-tool__arrow{color:var(--muted)}
 .folder-dialog__foot{padding-top:13px}
 .folder-dialog__foot span:last-child{opacity:.75}

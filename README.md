@@ -11,6 +11,9 @@ No changes to the production https://toolytools.com website.
 - **Notion-inspired (20%)**: subtle grouping, four muted folder palettes,
   descriptive subtitles, small category/count labels and tidy information
   hierarchy. No external branding or copying app assets.
+- **Tool identity**: eight distinct, saturated, solid-color tool icons with
+  readable white initials. Only the tool icons are vivid; folder surfaces and
+  page layout remain quiet. Colors persist across Light and Dark.
 - Responsive **two-column / 2x2 folder home** and a clean list-based folder
   dialog (bottom sheet on mobile).
 - **Light and Dark** both supported; user choice stored in localStorage.
