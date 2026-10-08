@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
-  <meta name="description" content="ToolyTools Refined Neo-Brutalism design system — Light and Dark demo, no production changes.">
+  <meta name="description" content="ToolyTools Refined Neo-Brutalism design system — Light and Dark interactive folder demo, no production changes.">
   <title>ToolyTools — Refined Neo-Brutalism Lab</title>
   <script>
     // Set the last chosen appearance before CSS loads, to avoid a flash.
@@ -19,6 +19,7 @@
   </script>
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./refined.css">
+  <link rel="stylesheet" href="./interaction.css">
   <script src="./refined.js" defer></script>
 </head>
 <body>
@@ -38,8 +39,7 @@
     </div>
   </aside>
 
-  <!-- Preserve the original homepage layout: header, hero, four horizontally
-       scrolling mobile folders, footer and cookie banner. -->
+  <!-- The four real ToolyTools folder categories, now interactive. -->
   <div class="site-preview" id="site-preview" data-theme="refined">
     <header class="site-header">
       <div class="site-width header-inner">
@@ -50,34 +50,34 @@
       <div class="site-width home-container">
         <div class="home-hero"><p>small tools, made for fun :D</p></div>
         <section class="folder-grid" aria-label="Tool folders" tabindex="0">
-          <div class="folder-item">
-            <div class="folder-card" aria-label="Utilities folder">
+          <button class="folder-item" type="button" data-folder="utilities" aria-label="Open Utilities folder" aria-haspopup="dialog" aria-controls="folder-dialog">
+            <span aria-hidden="true" class="folder-card">
               <span class="tool-tile tile-equals">=</span>
-            </div>
-            <div class="folder-title">Utilities</div>
-          </div>
-          <div class="folder-item">
-            <div class="folder-card" aria-label="Generators folder">
+            </span>
+            <span class="folder-title">Utilities<span class="folder-arrow" aria-hidden="true">↗</span></span>
+          </button>
+          <button class="folder-item" type="button" data-folder="generators" aria-label="Open Generators folder" aria-haspopup="dialog" aria-controls="folder-dialog">
+            <span aria-hidden="true" class="folder-card">
               <span class="tool-tile tile-ww">WW</span>
               <span class="tool-tile tile-ca">CA</span>
-            </div>
-            <div class="folder-title">Generators</div>
-          </div>
-          <div class="folder-item">
-            <div class="folder-card" aria-label="Fitness and Running folder">
+            </span>
+            <span class="folder-title">Generators<span class="folder-arrow" aria-hidden="true">↗</span></span>
+          </button>
+          <button class="folder-item" type="button" data-folder="fitness" aria-label="Open Fitness &amp; Running folder" aria-haspopup="dialog" aria-controls="folder-dialog">
+            <span aria-hidden="true" class="folder-card">
               <span class="tool-tile tile-pc">PC</span>
               <span class="tool-tile tile-ar">AR</span>
               <span class="tool-tile tile-mo">MO</span>
               <span class="tool-tile tile-tp">TP</span>
-            </div>
-            <div class="folder-title">Fitness &amp; Running</div>
-          </div>
-          <div class="folder-item">
-            <div class="folder-card" aria-label="Developer Tools folder">
+            </span>
+            <span class="folder-title">Fitness &amp; Running<span class="folder-arrow" aria-hidden="true">↗</span></span>
+          </button>
+          <button class="folder-item" type="button" data-folder="developer" aria-label="Open Developer Tools folder" aria-haspopup="dialog" aria-controls="folder-dialog">
+            <span aria-hidden="true" class="folder-card">
               <span class="tool-tile tile-ld">LD</span>
-            </div>
-            <div class="folder-title">Developer Tools</div>
-          </div>
+            </span>
+            <span class="folder-title">Developer Tools<span class="folder-arrow" aria-hidden="true">↗</span></span>
+          </button>
         </section>
       </div>
     </main>
@@ -97,6 +97,29 @@
       </div>
     </div>
   </div>
+
+  <!-- Dialog is outside site-preview so it is not clipped by the home layout. -->
+  <div class="modal-backdrop" id="folder-backdrop" hidden>
+    <section class="folder-dialog" id="folder-dialog" role="dialog" aria-modal="true"
+      aria-labelledby="folder-dialog-title" aria-describedby="folder-dialog-description"
+      tabindex="-1">
+      <div class="folder-dialog__header">
+        <div class="folder-dialog__intro">
+          <span class="folder-dialog__eyebrow">TOOLYTOOLS / FOLDER</span>
+          <h2 id="folder-dialog-title">Fitness &amp; Running</h2>
+          <p id="folder-dialog-description">Explore tools in this folder.</p>
+        </div>
+        <button type="button" class="folder-dialog__close" id="close-folder"
+          aria-label="Close folder dialog">×</button>
+      </div>
+      <div class="modal-tools" id="folder-tools" aria-label="Tools in selected folder"></div>
+      <div class="folder-dialog__foot">
+        <span id="folder-tool-count">4 tools</span>
+        <span>ESC to close <span aria-hidden="true">↗</span></span>
+      </div>
+    </section>
+  </div>
+  <div class="demo-toast" id="demo-toast" role="status" aria-live="polite" hidden></div>
 
   <!-- Tool-page specimen. Not part of the production ToolyTools homepage. -->
   <section class="component-lab" id="component-lab" aria-label="Reusable components demo">
