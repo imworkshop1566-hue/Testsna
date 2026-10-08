@@ -41,4 +41,11 @@ https://imworkshop1566-hue.github.io/Testsna/
   theme persistence and interactive Component Lab.
 - `README.md` — documentation.
 
-No build, third-party fonts, external images or frameworks required.
+No build, external images or JavaScript frameworks required.
+
+## Premium typography
+
+Manrope (Latin UI) + Noto Sans Thai (Thai UI), using restrained weights 400-700.
+The active typography layer is typography.css, loaded after workspace.css.
+Google Fonts are preconnected and use font-display swap; native system fonts
+are provided as offline fallbacks. The visual template remains otherwise unchanged.

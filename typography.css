@@ -1,0 +1,109 @@
+/* ToolyTools Typography / Premium Minimal
+   Latin: Manrope; Thai: Noto Sans Thai.
+   Purpose: elegant, consistent letterforms without changing layout or color.
+   The font stack gracefully falls back to native UI fonts when offline. */
+:root{
+  --font-ui:"Manrope","Noto Sans Thai",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  --font-number:"Manrope","Noto Sans Thai",system-ui,sans-serif;
+  --font-code:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  font-synthesis:none;
+}
+
+/* Use one shared family across all controls and the static style specimens.
+   More specific classes cover earlier font shorthand declarations. */
+body,button,input,select,textarea,
+.toolbar-brand,.toolbar-eyebrow,.toolbar-name,.toolbar-hint,
+.mode-switch button,.reset-cookie,
+.site-preview .site-logo,
+.site-preview .home-hero p.home-tagline,
+.site-preview .folder-title,
+.site-preview .tool-tile,
+.site-preview .footer-inner,
+.site-preview[data-theme="refined"] .cookie-banner p,
+.site-preview[data-theme="refined"] .cookie-actions button,
+.folder-dialog,.folder-dialog h2,.folder-dialog__eyebrow,
+.folder-dialog__close,.modal-tool,.modal-tool__icon,.modal-tool__name,
+.demo-toast,.component-lab,
+.kit-intro,.kit-card,.kit-card h3,
+.kit-field label,.kit-control,.kit-button,.kit-tab,
+.kit-result,.kit-list__item,.kit-pill,.kit-status{
+  font-family:var(--font-ui);
+}
+
+/* Restrained, confident type hierarchy; font weights remain in real font files. */
+.toolbar-name{
+  font-weight:700;
+  letter-spacing:-.048em;
+}
+.toolbar-name span{font-weight:500}
+.toolbar-hint,.toolbar-eyebrow{
+  font-weight:500;
+  letter-spacing:.01em;
+}
+.site-preview .site-logo{
+  font-weight:700;
+  letter-spacing:-.055em;
+}
+.site-preview .home-hero p.home-tagline{
+  font-weight:500;
+  letter-spacing:-.008em;
+  line-height:1.6;
+}
+.site-preview .folder-title{
+  font-weight:600;
+  letter-spacing:-.024em;
+  line-height:1.48;
+}
+.site-preview .tool-tile,
+.site-preview[data-theme="refined"] .tool-tile{
+  font-weight:700;
+  letter-spacing:-.035em;
+}
+.site-preview .footer-inner{
+  font-weight:400;
+  letter-spacing:0;
+}
+.site-preview[data-theme="refined"] .cookie-banner p{
+  font-weight:400;
+  letter-spacing:0;
+}
+.site-preview[data-theme="refined"] .cookie-actions button,
+.mode-switch button,.reset-cookie{
+  font-weight:600;
+  letter-spacing:-.012em;
+}
+.folder-dialog h2{
+  font-weight:700;
+  letter-spacing:-.045em;
+}
+.modal-tool__name{
+  font-weight:600;
+  letter-spacing:-.018em;
+  line-height:1.5;
+}
+.modal-tool__icon{
+  font-weight:700;
+  letter-spacing:-.028em;
+}
+.kit-intro h2,.kit-card h3{
+  font-weight:700;
+  letter-spacing:-.035em;
+}
+.kit-field label,.kit-button,.kit-tab{
+  font-weight:600;
+  letter-spacing:-.01em;
+}
+.kit-list__title,.kit-result__text{
+  font-weight:600;
+  letter-spacing:-.02em;
+}
+.kit-code{font-family:var(--font-code)}
+.kit-control[type="number"],.kit-result__text{
+  font-variant-numeric:tabular-nums;
+}
+
+/* Preserve the existing legibility/spacing on small phones. */
+@media(max-width:360px){
+  .site-preview .folder-title{letter-spacing:-.027em}
+  .modal-tool__name{letter-spacing:-.014em}
+}
