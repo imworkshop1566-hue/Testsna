@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
-  <meta name="description" content="ToolyTools Soft Minimal — clean, content-first Light and Dark folder demo. No production changes.">
-  <title>ToolyTools — Soft Minimal Style Lab</title>
+  <meta name="description" content="ToolyTools Calm Workspace preview: ChatGPT-inspired clarity with Notion-inspired organization. Light and Dark modes.">
+  <title>ToolyTools — Calm Workspace | ChatGPT + Notion Inspired</title>
   <script>
     // Set the last chosen appearance before CSS loads, to avoid a flash.
     (function () {
@@ -19,16 +19,17 @@
   </script>
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./interaction.css">
-  <link rel="stylesheet" href="./minimal.css">
+  <link rel="stylesheet" href="./minimal.css?v=20261008-blend">
+  <link rel="stylesheet" href="./workspace.css?v=20261008-v1">
   <script src="./refined.js" defer></script>
 </head>
 <body>
   <!-- Demo controls — not part of ToolyTools' actual website layout. -->
-  <aside class="demo-toolbar" aria-label="Soft Minimal design system controls">
+  <aside class="demo-toolbar" aria-label="Calm Workspace design system controls">
     <div class="toolbar-brand">
       <span class="toolbar-eyebrow">TOOLYTOOLS / DESIGN LAB</span>
-      <div class="toolbar-name">Soft <span>Minimal</span></div>
-      <div class="toolbar-hint">Clean, focused UI · Light & Dark</div>
+      <div class="toolbar-name">Calm <span>Workspace</span></div>
+      <div class="toolbar-hint">ChatGPT 80% + Notion 20% · Light & Dark</div>
     </div>
     <div class="toolbar-actions">
       <div class="mode-switch" role="group" aria-label="Appearance">
@@ -48,20 +49,34 @@
     </header>
     <main class="home-screen" id="main-content">
       <div class="site-width home-container">
-        <div class="home-hero"><p>small tools, made for fun :D</p></div>
+        <div class="home-hero">
+          <p class="home-eyebrow">THE TOOLBOX <span class="eyebrow-dot" aria-hidden="true"></span> MADE TO BE USEFUL</p>
+          <h1>Good tools.<br><span>Less effort.</span></h1>
+          <p class="home-description">A little collection of useful things, organized for the way you work, create, and move.</p>
+        </div>
+        <div class="folder-section-heading" aria-hidden="true">
+          <span>Explore collections</span>
+          <span>04 collections &nbsp;·&nbsp; 08 tools</span>
+        </div>
         <section class="folder-grid" aria-label="Tool folders" tabindex="0">
           <button class="folder-item" type="button" data-folder="utilities" aria-label="Open Utilities folder" aria-haspopup="dialog" aria-controls="folder-dialog">
             <span aria-hidden="true" class="folder-card">
               <span class="tool-tile tile-equals">=</span>
             </span>
-            <span class="folder-title">Utilities<span class="folder-arrow" aria-hidden="true">↗</span></span>
+            <span class="folder-info"><span class="folder-title">Utilities<span class="folder-arrow" aria-hidden="true">↗</span></span>
+              <span class="folder-desc">Quick, everyday helpers</span>
+              <span class="folder-count">01 TOOL</span>
+            </span>
           </button>
           <button class="folder-item" type="button" data-folder="generators" aria-label="Open Generators folder" aria-haspopup="dialog" aria-controls="folder-dialog">
             <span aria-hidden="true" class="folder-card">
               <span class="tool-tile tile-ww">WW</span>
               <span class="tool-tile tile-ca">CA</span>
             </span>
-            <span class="folder-title">Generators<span class="folder-arrow" aria-hidden="true">↗</span></span>
+            <span class="folder-info"><span class="folder-title">Generators<span class="folder-arrow" aria-hidden="true">↗</span></span>
+              <span class="folder-desc">Make something new</span>
+              <span class="folder-count">02 TOOLS</span>
+            </span>
           </button>
           <button class="folder-item" type="button" data-folder="fitness" aria-label="Open Fitness &amp; Running folder" aria-haspopup="dialog" aria-controls="folder-dialog">
             <span aria-hidden="true" class="folder-card">
@@ -70,13 +85,19 @@
               <span class="tool-tile tile-mo">MO</span>
               <span class="tool-tile tile-tp">TP</span>
             </span>
-            <span class="folder-title">Fitness &amp; Running<span class="folder-arrow" aria-hidden="true">↗</span></span>
+            <span class="folder-info"><span class="folder-title">Fitness &amp; Running<span class="folder-arrow" aria-hidden="true">↗</span></span>
+              <span class="folder-desc">Move, track & improve</span>
+              <span class="folder-count">04 TOOLS</span>
+            </span>
           </button>
           <button class="folder-item" type="button" data-folder="developer" aria-label="Open Developer Tools folder" aria-haspopup="dialog" aria-controls="folder-dialog">
             <span aria-hidden="true" class="folder-card">
               <span class="tool-tile tile-ld">LD</span>
             </span>
-            <span class="folder-title">Developer Tools<span class="folder-arrow" aria-hidden="true">↗</span></span>
+            <span class="folder-info"><span class="folder-title">Developer Tools<span class="folder-arrow" aria-hidden="true">↗</span></span>
+              <span class="folder-desc">Tools for building</span>
+              <span class="folder-count">01 TOOL</span>
+            </span>
           </button>
         </section>
       </div>
@@ -127,8 +148,8 @@
       <div class="kit-intro">
         <div>
           <p class="kit-eyebrow">DESIGN SYSTEM / 01</p>
-          <h2>Other pages, same personality.</h2>
-          <p>ทดสอบ Light / Dark กับส่วนประกอบที่ใช้ในหน้าเครื่องมือจริง เพื่อพัฒนา Refined Neo-Brutalism ต่อให้เป็น Design System เดียวกัน</p>
+          <h2>One system, every tool.</h2>
+          <p>Shared components for everyday tools. ChatGPT-inspired clarity, with a little Notion-style structure and organization.</p>
         </div>
         <span class="kit-badge">Light + Dark</span>
       </div>

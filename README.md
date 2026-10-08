@@ -1,45 +1,39 @@
-# ToolyTools — Soft Minimal Style Lab
+# ToolyTools — Calm Workspace (ChatGPT-inspired 80% + Notion-inspired 20%)
 
-This is a **local testing project** at `F:\Project\ToolyToolsStyleDemo`.
-The production website at https://toolytools.com is not modified.
+Static, demo-only UI at `F:\Project\ToolyToolsStyleDemo`.
+No changes to the production https://toolytools.com website.
 
-## Direction
+## Design direction
 
-A calm, content-first, ChatGPT-inspired **Soft Minimal UI**, not a copy of
-ChatGPT branding or its exact screens. Flat neutral surfaces, good typography,
-unobtrusive borders, generous breathing room and rounded controls. No colored
-background patterns, transparency effects or hard-offset shadows.
+- **ChatGPT-inspired (80%)**: neutral white and charcoal surfaces, generous
+  whitespace, thoughtful typography, rounded controls, gentle focus/hover
+  states and no distracting effects.
+- **Notion-inspired (20%)**: subtle grouping, four muted folder palettes,
+  descriptive subtitles, small category/count labels and tidy information
+  hierarchy. No external branding or copying app assets.
+- Responsive **two-column / 2x2 folder home** and a clean list-based folder
+  dialog (bottom sheet on mobile).
+- **Light and Dark** both supported; user choice stored in localStorage.
+- Cookie banner and Component Lab remain interactive demos.
 
-- Two appearance modes: Light and Dark. Both are defined in `minimal.css`.
-- The color preference persists using localStorage.
-- Homepage: four original ToolyTools folders, a 2x2 grid on phone and desktop.
-- Click a folder to open a clean, responsive tool-list dialog. Mobile uses
-  a simple bottom sheet. Close by close button, background click or Escape.
-- Tool list items display a demo notice; no real tool URL is invented.
-- Component Lab remains interactive: input, select, buttons, tabs and results.
-- Cookie banner is a demo, not an analytics integration.
+Folder contents are mockups; tapping tool items shows a demo notice.
+The demo does not invent navigation destinations.
 
-## Open
+## Preview
 
-Double-click `index.html` on your computer, or visit the testing-only
-GitHub Pages site at https://imworkshop1566-hue.github.io/Testsna/
+Double-click `index.html` in Edge/Chrome or open the test-only hosted site:
+https://imworkshop1566-hue.github.io/Testsna/
 
-## Files
+## Source files
 
-- `index.html` — local style demo, homepage and Component Lab.
-- `styles.css` — structural layout and responsive base.
-- `interaction.css` — folder and dialog structural layout.
-- `minimal.css` — active design system tokens, surfaces and Light/Dark states.
-- `refined.js` — modal, accessibility, localStorage and component interactions.
-- `README.md` — this file.
+- `index.html` — homepage, clickable folders and Component Lab.
+- `styles.css` — responsive structural styles.
+- `interaction.css` — folder grid and dialog structures.
+- `minimal.css` — minimal base and Light/Dark semantic tokens.
+- `workspace.css` — **active ChatGPT/Notion-inspired design refinement**,
+  collection metadata, responsive typography and subtle folder colors.
+- `refined.js` — keyboard/focus behavior, opening and closing folders,
+  theme persistence and interactive Component Lab.
+- `README.md` — documentation.
 
-Only local/static HTML/CSS/JavaScript; no build or third-party dependencies.
-
-## Reusable design tokens
-
-Semantic tokens in `minimal.css`: `--bg`, `--surface`,
-`--surface-2`, `--text`, `--muted`, `--border`, `--accent`,
-`--on-accent`, `--focus`, `--ds-*`.
-
-The priority for further development is real product usability, contrast,
-small-screen readability, meaningful hover/focus feedback and consistent tools.
+No build, third-party fonts, external images or frameworks required.
