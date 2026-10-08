@@ -49,3 +49,11 @@ Manrope (Latin UI) + Noto Sans Thai (Thai UI), using restrained weights 400-700.
 The active typography layer is typography.css, loaded after workspace.css.
 Google Fonts are preconnected and use font-display swap; native system fonts
 are provided as offline fallbacks. The visual template remains otherwise unchanged.
+
+## Unified buttons
+
+All regular action buttons share a 42px minimum height, 12px corner radius,
+Manrope / Noto Sans Thai font at weight 600, and consistent hover/focus states.
+Primary buttons use high-contrast accent; Secondary buttons use neutral surfaces.
+Light/Dark and Tools/Activity remain pill-shaped segmented selection controls.
+These semantic overrides live in buttons.css (loaded last).
