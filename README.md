@@ -1,4 +1,4 @@
-# ToolyTools — Refined Neo-Brutalism
+# ToolyTools — Soft Glass Style Lab
 
 A **local demo-only** design system under `F:\Project\ToolyToolsStyleDemo`.
 It does **not** modify the real https://toolytools.com website.
@@ -8,7 +8,8 @@ It does **not** modify the real https://toolytools.com website.
 Double-click `index.html` in Edge/Chrome. No server, dependencies,
 image packs, third-party fonts or build tools required.
 
-Only **one design style** exists: Refined Neo-Brutalism — **Cool Slate** palette (clean cool white, muted slate blue, teal; no cream/orange).
+The active style is **Soft Glass**, an iOS-inspired (not an Apple product) visual language: translucent surfaces, frosted blur, generous radii, soft blue/cyan/lavender gradients, pill controls and understated shadows.
+It supports **Light** and **Dark** without changing the UI structure.
 Two modes, **Light** and **Dark**, share the exact same layout and components.
 
 - Switch Light / Dark in the demo toolbar.
@@ -31,7 +32,11 @@ Two modes, **Light** and **Dark**, share the exact same layout and components.
 - `refined.css` — the single reusable visual system (Light & Dark).
 - `refined.js` — appearance persistence, responsive folder dialog,
   keyboard/focus handling, cookie demo and interactive specimen.
-- `interaction.css` — 2×2 folder layout and responsive dialog on desktop/mobile.
+- `interaction.css` — 2×2 folder layout and responsive dialog structure.
+- `glass.css` — **active Soft Glass skin**: translucent cards, soft gradients,
+  pill buttons, subtle shadows and a mobile bottom sheet.
+- `refined.css` — original underlying token layer retained for easy rollback;
+  `glass.css` overrides it.
 - `README.md` — this guide.
 
 Keep `.git` and `.serena` for development/tool configuration.
@@ -39,18 +44,18 @@ No historical style packages, galleries, screenshots or ZIPs are required.
 
 ## Core tokens
 
-Style tokens defined in `refined.css` on `html[data-mode="light"]`
+Active palette tokens defined in `glass.css` on `html[data-mode="light"]`
 and `html[data-mode="dark"]`:
 
 | Token | Purpose |
 | --- | --- |
 | `--bg`, `--surface`, `--surface-2` | Page and card backgrounds |
 | `--text`, `--muted` | Readable foreground colors |
-| `--border`, `--shadow-ink` | 1.5px cool slate ink borders and subtle offset shadow |
+| `--glass-surface`, `--glass-border` | Transparent frosted glass surfaces / thin borders |
 | `--accent`, `--on-accent` | Primary action and contrast text |
 | `--folder-1..4`, `--tile-1..8` | Four folders and eight tool tiles |
-| `--radius-lg`, `--radius-md` | Corner sizes |
-| `--shadow-card`, `--shadow-tile` | Shadows |
+| `--radius-lg`, `--radius-md` | Soft rounded corners |
+| `--glass-shadow`, `--shadow-tile` | Soft diffuse shadows |
 | `--ds-*` | Semantic aliases for use in future tool pages |
 
 ## Development roadmap
