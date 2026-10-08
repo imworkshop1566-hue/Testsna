@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en" data-mode="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="ToolyTools Refined Neo-Brutalism design system — Light and Dark demo, no production changes.">
+  <title>ToolyTools — Refined Neo-Brutalism Lab</title>
+  <script>
+    // Set the last chosen appearance before CSS loads, to avoid a flash.
+    (function () {
+      try {
+        var saved = localStorage.getItem("toolytools-refined-mode");
+        document.documentElement.dataset.mode =
+          saved === "light" || saved === "dark" ? saved :
+          (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      } catch (_) { document.documentElement.dataset.mode = "light"; }
+    }());
+  </script>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./refined.css">
+  <script src="./refined.js" defer></script>
+</head>
+<body>
+  <!-- Demo controls — not part of ToolyTools' actual website layout. -->
+  <aside class="demo-toolbar" aria-label="Refined design system controls">
+    <div class="toolbar-brand">
+      <span class="toolbar-eyebrow">TOOLYTOOLS / DESIGN LAB</span>
+      <div class="toolbar-name">Refined <span>Neo-Brutalism</span></div>
+      <div class="toolbar-hint">One design direction. Two appearances.</div>
+    </div>
+    <div class="toolbar-actions">
+      <div class="mode-switch" role="group" aria-label="Appearance">
+        <button type="button" data-mode-switch="light" aria-pressed="true"><span aria-hidden="true">☀</span> Light</button>
+        <button type="button" data-mode-switch="dark" aria-pressed="false"><span aria-hidden="true">☾</span> Dark</button>
+      </div>
+      <button class="reset-cookie" id="show-cookie" type="button">Show cookie banner</button>
+    </div>
+  </aside>
+
+  <!-- Preserve the original homepage layout: header, hero, four horizontally
+       scrolling mobile folders, footer and cookie banner. -->
+  <div class="site-preview" id="site-preview" data-theme="refined">
+    <header class="site-header">
+      <div class="site-width header-inner">
+        <span class="site-logo"><span class="logo-accent">t:</span> toolytools</span>
+      </div>
+    </header>
+    <main class="home-screen" id="main-content">
+      <div class="site-width home-container">
+        <div class="home-hero"><p>small tools, made for fun :D</p></div>
+        <section class="folder-grid" aria-label="Tool folders" tabindex="0">
+          <div class="folder-item">
+            <div class="folder-card" aria-label="Utilities folder">
+              <span class="tool-tile tile-equals">=</span>
+            </div>
+            <div class="folder-title">Utilities</div>
+          </div>
+          <div class="folder-item">
+            <div class="folder-card" aria-label="Generators folder">
+              <span class="tool-tile tile-ww">WW</span>
+              <span class="tool-tile tile-ca">CA</span>
+            </div>
+            <div class="folder-title">Generators</div>
+          </div>
+          <div class="folder-item">
+            <div class="folder-card" aria-label="Fitness and Running folder">
+              <span class="tool-tile tile-pc">PC</span>
+              <span class="tool-tile tile-ar">AR</span>
+              <span class="tool-tile tile-mo">MO</span>
+              <span class="tool-tile tile-tp">TP</span>
+            </div>
+            <div class="folder-title">Fitness &amp; Running</div>
+          </div>
+          <div class="folder-item">
+            <div class="folder-card" aria-label="Developer Tools folder">
+              <span class="tool-tile tile-ld">LD</span>
+            </div>
+            <div class="folder-title">Developer Tools</div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="site-width footer-inner">
+        <span>© 2026 ToolyTools</span>
+        <nav class="footer-links" aria-label="Footer pages">
+          <span>About</span><span>Privacy</span><span>Terms</span><span>Contact</span>
+        </nav>
+      </div>
+    </footer>
+    <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie choices">
+      <p>ToolyTools uses local storage for tool settings and optional analytics to improve the site. No ads.</p>
+      <div class="cookie-actions">
+        <button type="button" data-dismiss-cookie="decline">Decline</button>
+        <button type="button" data-dismiss-cookie="accept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tool-page specimen. Not part of the production ToolyTools homepage. -->
+  <section class="component-lab" id="component-lab" aria-label="Reusable components demo">
+    <div class="component-lab__inner">
+      <div class="kit-intro">
+        <div>
+          <p class="kit-eyebrow">DESIGN SYSTEM / 01</p>
+          <h2>Other pages, same personality.</h2>
+          <p>ทดสอบ Light / Dark กับส่วนประกอบที่ใช้ในหน้าเครื่องมือจริง เพื่อพัฒนา Refined Neo-Brutalism ต่อให้เป็น Design System เดียวกัน</p>
+        </div>
+        <span class="kit-badge">Light + Dark</span>
+      </div>
+      <div class="kit-grid">
+        <article class="kit-card">
+          <div class="kit-card__head">
+            <h3>Workout Wallpaper</h3>
+            <span class="kit-status">● Preview mode</span>
+          </div>
+          <div class="kit-fields">
+            <div class="kit-field">
+              <label for="kit-goal">Weekly goal (km)</label>
+              <input id="kit-goal" class="kit-control" type="number" min="1" max="999" inputmode="numeric" value="70">
+            </div>
+            <div class="kit-field">
+              <label for="kit-format">Wallpaper format</label>
+              <select id="kit-format" class="kit-control">
+                <option>Portrait</option><option>Landscape</option><option>Square</option>
+              </select>
+            </div>
+          </div>
+          <div class="kit-buttons">
+            <button class="kit-button primary" id="kit-generate" type="button">Update preview →</button>
+            <button class="kit-button" id="kit-reset" type="button">Reset settings</button>
+          </div>
+          <div class="kit-result" aria-live="polite">
+            <div class="kit-result__art">WW</div>
+            <div>
+              <div class="kit-result__text" id="kit-result-title">70 km · Portrait</div>
+              <div class="kit-result__muted" id="kit-result-info">Interactive demo of reusable components</div>
+            </div>
+          </div>
+          <p class="kit-note">Sample UI only — no wallpaper file is generated.</p>
+        </article>
+        <article class="kit-card">
+          <div class="kit-card__head">
+            <h3>Components in context</h3>
+            <span class="kit-status">● Reusable</span>
+          </div>
+          <div class="kit-tabs" role="group" aria-label="Example data">
+            <button type="button" class="kit-tab" data-kit-tab="tools" aria-pressed="true">Tools</button>
+            <button type="button" class="kit-tab" data-kit-tab="activity" aria-pressed="false">Activity</button>
+          </div>
+          <div id="kit-list" class="kit-list"></div>
+          <p class="kit-note">Shared tokens:
+            <span class="kit-code">--ds-surface</span>
+            <span class="kit-code">--ds-accent</span>
+            <span class="kit-code">--ds-border</span>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
