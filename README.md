@@ -14,8 +14,10 @@ No changes to the production https://toolytools.com website.
 - **Tool identity**: eight distinct, saturated, solid-color tool icons with
   readable white initials. Only the tool icons are vivid; folder surfaces and
   page layout remain quiet. Colors persist across Light and Dark.
-- Responsive **two-column / 2x2 folder home** and a clean list-based folder
-  dialog (bottom sheet on mobile).
+- Original-site copy and structure: one friendly tagline, 2x2 folders with
+  the category names only, and a centered 2-column tool popup that displays
+  colored icons and tool names. No marketing headings, collection descriptions,
+  counts or tool description paragraphs.
 - **Light and Dark** both supported; user choice stored in localStorage.
 - Cookie banner and Component Lab remain interactive demos.
 

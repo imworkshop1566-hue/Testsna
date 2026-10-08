@@ -20,8 +20,8 @@
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./interaction.css">
   <link rel="stylesheet" href="./minimal.css?v=20261008-blend">
-  <link rel="stylesheet" href="./workspace.css?v=20261008-v2color">
-  <script src="./refined.js" defer></script>
+  <link rel="stylesheet" href="./workspace.css?v=20261008-v3simple">
+  <script src="./refined.js?v=20261008-v3simple" defer></script>
 </head>
 <body>
   <!-- Demo controls — not part of ToolyTools' actual website layout. -->
@@ -50,33 +50,21 @@
     <main class="home-screen" id="main-content">
       <div class="site-width home-container">
         <div class="home-hero">
-          <p class="home-eyebrow">THE TOOLBOX <span class="eyebrow-dot" aria-hidden="true"></span> MADE TO BE USEFUL</p>
-          <h1>Good tools.<br><span>Less effort.</span></h1>
-          <p class="home-description">A little collection of useful things, organized for the way you work, create, and move.</p>
-        </div>
-        <div class="folder-section-heading" aria-hidden="true">
-          <span>Explore collections</span>
-          <span>04 collections &nbsp;·&nbsp; 08 tools</span>
+          <p class="home-tagline">small tools, made for fun :D</p>
         </div>
         <section class="folder-grid" aria-label="Tool folders" tabindex="0">
           <button class="folder-item" type="button" data-folder="utilities" aria-label="Open Utilities folder" aria-haspopup="dialog" aria-controls="folder-dialog">
             <span aria-hidden="true" class="folder-card">
               <span class="tool-tile tile-equals">=</span>
             </span>
-            <span class="folder-info"><span class="folder-title">Utilities<span class="folder-arrow" aria-hidden="true">↗</span></span>
-              <span class="folder-desc">Quick, everyday helpers</span>
-              <span class="folder-count">01 TOOL</span>
-            </span>
+            <span class="folder-title">Utilities</span>
           </button>
           <button class="folder-item" type="button" data-folder="generators" aria-label="Open Generators folder" aria-haspopup="dialog" aria-controls="folder-dialog">
             <span aria-hidden="true" class="folder-card">
               <span class="tool-tile tile-ww">WW</span>
               <span class="tool-tile tile-ca">CA</span>
             </span>
-            <span class="folder-info"><span class="folder-title">Generators<span class="folder-arrow" aria-hidden="true">↗</span></span>
-              <span class="folder-desc">Make something new</span>
-              <span class="folder-count">02 TOOLS</span>
-            </span>
+            <span class="folder-title">Generators</span>
           </button>
           <button class="folder-item" type="button" data-folder="fitness" aria-label="Open Fitness &amp; Running folder" aria-haspopup="dialog" aria-controls="folder-dialog">
             <span aria-hidden="true" class="folder-card">
@@ -85,19 +73,13 @@
               <span class="tool-tile tile-mo">MO</span>
               <span class="tool-tile tile-tp">TP</span>
             </span>
-            <span class="folder-info"><span class="folder-title">Fitness &amp; Running<span class="folder-arrow" aria-hidden="true">↗</span></span>
-              <span class="folder-desc">Move, track & improve</span>
-              <span class="folder-count">04 TOOLS</span>
-            </span>
+            <span class="folder-title">Fitness &amp; Running</span>
           </button>
           <button class="folder-item" type="button" data-folder="developer" aria-label="Open Developer Tools folder" aria-haspopup="dialog" aria-controls="folder-dialog">
             <span aria-hidden="true" class="folder-card">
               <span class="tool-tile tile-ld">LD</span>
             </span>
-            <span class="folder-info"><span class="folder-title">Developer Tools<span class="folder-arrow" aria-hidden="true">↗</span></span>
-              <span class="folder-desc">Tools for building</span>
-              <span class="folder-count">01 TOOL</span>
-            </span>
+            <span class="folder-title">Developer Tools</span>
           </button>
         </section>
       </div>
@@ -122,22 +104,16 @@
   <!-- Dialog is outside site-preview so it is not clipped by the home layout. -->
   <div class="modal-backdrop" id="folder-backdrop" hidden>
     <section class="folder-dialog" id="folder-dialog" role="dialog" aria-modal="true"
-      aria-labelledby="folder-dialog-title" aria-describedby="folder-dialog-description"
+      aria-labelledby="folder-dialog-title"
       tabindex="-1">
       <div class="folder-dialog__header">
         <div class="folder-dialog__intro">
-          <span class="folder-dialog__eyebrow">TOOLYTOOLS / FOLDER</span>
           <h2 id="folder-dialog-title">Fitness &amp; Running</h2>
-          <p id="folder-dialog-description">Explore tools in this folder.</p>
         </div>
         <button type="button" class="folder-dialog__close" id="close-folder"
           aria-label="Close folder dialog">×</button>
       </div>
       <div class="modal-tools" id="folder-tools" aria-label="Tools in selected folder"></div>
-      <div class="folder-dialog__foot">
-        <span id="folder-tool-count">4 tools</span>
-        <span>ESC to close <span aria-hidden="true">↗</span></span>
-      </div>
     </section>
   </div>
   <div class="demo-toast" id="demo-toast" role="status" aria-live="polite" hidden></div>

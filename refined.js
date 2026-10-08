@@ -94,9 +94,7 @@ const folderButtons = [...document.querySelectorAll("[data-folder]")];
 const folderBackdrop = document.getElementById("folder-backdrop");
 const folderDialog = document.getElementById("folder-dialog");
 const folderTitle = document.getElementById("folder-dialog-title");
-const folderDescription = document.getElementById("folder-dialog-description");
 const folderTools = document.getElementById("folder-tools");
-const folderCount = document.getElementById("folder-tool-count");
 const closeFolderButton = document.getElementById("close-folder");
 const toast = document.getElementById("demo-toast");
 let lastFocusedFolder = null;
@@ -108,8 +106,6 @@ function openFolder(folderId) {
   // does not always move document.activeElement onto the clicked button.
   lastFocusedFolder = folderButtons.find(button => button.dataset.folder === folderId) || document.activeElement;
   folderTitle.textContent = entry.title;
-  folderDescription.textContent = entry.description;
-  folderCount.textContent = entry.tools.length + (entry.tools.length === 1 ? " tool" : " tools");
   folderTools.replaceChildren();
   for (const [id, abbr, name, explanation, color] of entry.tools) {
     const card = document.createElement("button");
@@ -125,17 +121,7 @@ function openFolder(folderId) {
     const label = document.createElement("span");
     label.className = "modal-tool__name";
     label.textContent = name;
-    const detail = document.createElement("span");
-    detail.className = "modal-tool__description";
-    detail.textContent = explanation;
-    const arrow = document.createElement("span");
-    arrow.className = "modal-tool__arrow";
-    arrow.setAttribute("aria-hidden","true");
-    arrow.textContent = "↗";
-    const content = document.createElement("span");
-    content.className = "modal-tool__content";
-    content.append(label,detail);
-    card.append(tile,content,arrow);
+    card.append(tile,label);
     card.addEventListener("click", () => {
       toast.textContent = name + " · หน้านี้เป็นตัวอย่าง UI ยังไม่ได้เชื่อมต่อเครื่องมือจริง";
       toast.hidden = false;
