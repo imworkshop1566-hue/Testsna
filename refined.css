@@ -1,0 +1,191 @@
+/* Refined Neo-Brutalism — ONE visual system, TWO appearances.
+   Design tokens are shared by homepage and future ToolyTools tools.
+   Colors, borders and shadows live here; all dimensions/layout in styles.css. */
+
+:root,
+html[data-mode="light"]{
+  color-scheme:light;
+  --bg:#f3f0e9;
+  --surface:#fffcf7;
+  --surface-2:#e9e6dd;
+  --text:#23282c;
+  --muted:#626d70;
+  --border:#293034;
+  --accent:#bf6942;
+  --accent-2:#a7bdb6;
+  --on-accent:#ffffff;
+  --shadow-ink:#293034;
+  --site-glow:linear-gradient(165deg,#faf8f3 0%,#f3f0e9 67%,#eeebe4 100%);
+  --folder-1:#c3d0ca;
+  --folder-2:#d9b6a4;
+  --folder-3:#b7c5d3;
+  --folder-4:#d1c5b5;
+  --tile-1:#536d65;
+  --tile-2:#ac6243;
+  --tile-3:#607984;
+  --tile-4:#a36649;
+  --tile-5:#567962;
+  --tile-6:#646f91;
+  --tile-7:#467c89;
+  --tile-8:#7d6958;
+  --tile-ink:#ffffff;
+  --radius-lg:13px;
+  --radius-md:7px;
+  --shadow-card:3px 3px 0 var(--shadow-ink);
+  --shadow-tile:1px 1px 0 #29303475;
+  --card-border:2px solid var(--border);
+  --tile-border:1px solid var(--border);
+  --transition:180ms ease;
+
+  --ds-bg:var(--bg);
+  --ds-surface:var(--surface);
+  --ds-surface-alt:var(--surface-2);
+  --ds-text:var(--text);
+  --ds-muted:var(--muted);
+  --ds-border:var(--border);
+  --ds-accent:var(--accent);
+  --ds-on-accent:var(--on-accent);
+  --ds-positive:#2f7562;
+  --ds-radius:var(--radius-lg);
+  --ds-shadow:var(--shadow-card);
+  --ds-focus:#a34f2a;
+}
+html[data-mode="dark"]{
+  color-scheme:dark;
+  --bg:#171b1e;
+  --surface:#232a2f;
+  --surface-2:#30393e;
+  --text:#f2efe8;
+  --muted:#bdbab1;
+  --border:#d8d0c4;
+  --accent:#dc895d;
+  --accent-2:#86a69f;
+  --on-accent:#1b1d1f;
+  --shadow-ink:#b9b1a7;
+  --site-glow:linear-gradient(155deg,#252a2d 0%,#171b1e 61%,#131719 100%);
+  --folder-1:#354940;
+  --folder-2:#604b42;
+  --folder-3:#344751;
+  --folder-4:#554a41;
+  --tile-1:#a1c0b3;
+  --tile-2:#eba77f;
+  --tile-3:#99b6bf;
+  --tile-4:#e0ab86;
+  --tile-5:#acc7a9;
+  --tile-6:#b4b7db;
+  --tile-7:#a2cbd0;
+  --tile-8:#cebcaa;
+  --tile-ink:#1d292b;
+  --shadow-card:3px 3px 0 var(--shadow-ink);
+  --shadow-tile:1px 1px 0 #ebe0d16a;
+
+  --ds-positive:#a7d4b8;
+  --ds-focus:#f1ad81;
+}
+
+/* Demo toolbar shares the actual system so switching previews everything. */
+body{background:var(--bg);color:var(--text);transition:background-color var(--transition),color var(--transition)}
+.demo-toolbar{color:var(--text)}
+.toolbar-eyebrow{color:var(--accent)}
+.toolbar-name span{color:var(--accent)}
+.toolbar-hint{color:var(--muted)}
+.mode-switch{border:1px solid var(--border);background:var(--surface-2)}
+.mode-switch button{background:transparent;color:var(--text)}
+.mode-switch button:hover{background:var(--surface)}
+.mode-switch button[aria-pressed="true"]{
+  background:var(--accent);color:var(--on-accent);border-color:var(--border);
+  box-shadow:2px 2px 0 var(--shadow-ink);
+}
+.reset-cookie{border-color:var(--border);background:var(--surface);color:var(--text)}
+.reset-cookie:hover{background:var(--surface-2)}
+
+/* Matching original ToolyTools homepage proportions. */
+.site-preview[data-theme="refined"]{
+  background:var(--site-glow),var(--bg);
+  color:var(--text);
+  border-top-color:var(--border);
+}
+.site-preview[data-theme="refined"] .site-header{
+  border-bottom:2px solid var(--border);
+  background:var(--surface);
+}
+.site-preview[data-theme="refined"] .logo-accent{color:var(--accent)}
+.site-preview[data-theme="refined"] .site-logo{letter-spacing:-.45px}
+.site-preview[data-theme="refined"] .home-hero p{color:var(--muted)}
+.site-preview[data-theme="refined"] .folder-card{
+  border:var(--card-border);border-radius:var(--radius-lg);
+  background:var(--folder-color);box-shadow:var(--shadow-card);
+}
+.site-preview[data-theme="refined"] .folder-item:nth-child(1){--folder-color:var(--folder-1)}
+.site-preview[data-theme="refined"] .folder-item:nth-child(2){--folder-color:var(--folder-2)}
+.site-preview[data-theme="refined"] .folder-item:nth-child(3){--folder-color:var(--folder-3)}
+.site-preview[data-theme="refined"] .folder-item:nth-child(4){--folder-color:var(--folder-4)}
+.site-preview[data-theme="refined"] .folder-card::after{
+  content:"";position:absolute;bottom:10px;right:10px;width:12px;height:3px;
+  background:var(--border);opacity:.38;border-radius:1px;pointer-events:none;
+}
+.site-preview[data-theme="refined"] .tool-tile{
+  border:var(--tile-border);border-radius:var(--radius-md);
+  box-shadow:var(--shadow-tile);color:var(--tile-ink);filter:none;
+}
+.site-preview[data-theme="refined"] .tile-equals{background:var(--tile-1)}
+.site-preview[data-theme="refined"] .tile-ww{background:var(--tile-2)}
+.site-preview[data-theme="refined"] .tile-ca{background:var(--tile-3)}
+.site-preview[data-theme="refined"] .tile-pc{background:var(--tile-4)}
+.site-preview[data-theme="refined"] .tile-ar{background:var(--tile-5)}
+.site-preview[data-theme="refined"] .tile-mo{background:var(--tile-6)}
+.site-preview[data-theme="refined"] .tile-tp{background:var(--tile-7)}
+.site-preview[data-theme="refined"] .tile-ld{background:var(--tile-8)}
+.site-preview[data-theme="refined"] .folder-title{color:var(--text)}
+.site-preview[data-theme="refined"] .site-footer{border-top-color:var(--border)}
+.site-preview[data-theme="refined"] .footer-inner{color:var(--muted)}
+.site-preview[data-theme="refined"] .cookie-banner{
+  color:var(--text);background:var(--surface);
+  border-color:var(--border);box-shadow:var(--shadow-card);
+}
+.site-preview[data-theme="refined"] .cookie-banner p{color:var(--text)}
+.site-preview[data-theme="refined"] .cookie-actions button{
+  border-color:var(--border);color:var(--text);background:var(--surface-2);
+}
+.site-preview[data-theme="refined"] .cookie-actions button[data-dismiss-cookie="accept"]{
+  background:var(--accent);color:var(--on-accent);
+}
+@media(hover:hover) and (min-width:721px) {
+ .site-preview[data-theme="refined"] .folder-card:hover{
+   transform:translateY(-2px);box-shadow:3px 5px 0 var(--shadow-ink);
+ }
+}
+
+/* Components: inputs stay understated; primary actions get the accent. */
+.component-lab{background:var(--ds-bg);color:var(--ds-text)}
+.kit-eyebrow{color:var(--ds-accent)}
+.kit-intro p:last-child,.kit-note,.kit-list__sub,.kit-result__muted{color:var(--ds-muted)}
+.kit-badge{border-color:var(--ds-border);background:var(--ds-surface);color:var(--ds-muted)}
+.kit-card{
+  border-color:var(--ds-border);background:var(--ds-surface);
+  color:var(--ds-text);box-shadow:var(--ds-shadow);
+}
+.kit-status{color:var(--ds-positive);background:var(--ds-surface-alt);border-color:var(--ds-border)}
+.kit-field label{color:var(--ds-text)}
+.kit-control{
+  background:var(--ds-surface-alt);color:var(--ds-text);border-color:var(--ds-border);
+}
+.kit-control:focus-visible{outline:2px solid var(--ds-focus)}
+.kit-button{color:var(--ds-text);background:var(--ds-surface-alt);border-color:var(--ds-border)}
+.kit-button.primary{
+  background:var(--ds-accent);color:var(--ds-on-accent);border-color:var(--ds-border);
+  box-shadow:2px 2px 0 var(--shadow-ink);
+}
+.kit-button:hover,.kit-tab:hover{filter:brightness(.96)}
+html[data-mode="dark"] .kit-button:hover,html[data-mode="dark"] .kit-tab:hover{filter:brightness(1.12)}
+.kit-result{
+  background:var(--ds-surface-alt);border-color:var(--ds-border);
+}
+.kit-result__art{background:var(--ds-accent);color:var(--ds-on-accent)}
+.kit-tab{color:var(--ds-muted);background:transparent;border-color:var(--ds-border)}
+.kit-tab[aria-pressed="true"]{
+  color:var(--ds-on-accent);background:var(--ds-accent);border-color:var(--ds-border);
+}
+.kit-list__item{border-bottom-color:var(--ds-border)}
+.kit-pill{background:var(--ds-surface-alt);color:var(--ds-text)}
+.kit-code{background:var(--ds-surface-alt);color:var(--ds-text);border-color:var(--ds-border)}

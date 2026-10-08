@@ -1,433 +1,163 @@
-<!DOCTYPE html>
-<html lang="th">
+<!doctype html>
+<html lang="en" data-mode="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-* { 
-    box-sizing: border-box; 
-    caret-color: transparent;
-}
-
-body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: 'Kanit', sans-serif;
-    background: #0c0c10;
-    color: #e2e8f0;
-    overflow-x: hidden;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-    background-size: 50px 50px;
-    pointer-events: none;
-    z-index: 0;
-}
-
-body::after {
-    content: '';
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: 
-        radial-gradient(circle at 30% 20%, rgba(56, 189, 248, 0.2) 0%, transparent 35%),
-        radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.18) 0%, transparent 35%),
-        radial-gradient(circle at 85% 15%, rgba(236, 72, 153, 0.12) 0%, transparent 30%),
-        radial-gradient(circle at 15% 75%, rgba(34, 211, 238, 0.15) 0%, transparent 30%);
-    animation: bgFloat 15s ease-in-out infinite;
-    pointer-events: none;
-    z-index: 0;
-}
-
-@keyframes bgFloat {
-    0% { 
-        transform: translate(0, 0) scale(1);
-    }
-    33% { 
-        transform: translate(5%, 3%) scale(1.05);
-    }
-    66% { 
-        transform: translate(-3%, 5%) scale(0.98);
-    }
-    100% { 
-        transform: translate(0, 0) scale(1);
-    }
-}
-
-.card-grid {
-    display: grid;
-    gap: 20px;
-    padding: 40px;
-    padding-bottom: 120px;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    position: relative;
-    z-index: 1;
-}
-
-.device-card {
-    background: rgba(20, 20, 28, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    padding: 28px;
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    transition: all 0.3s ease;
-    animation: fadeSlideIn 0.5s ease-out forwards;
-    opacity: 0;
-    transform: translateY(20px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-@keyframes fadeSlideIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.device-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(56, 189, 248, 0.3);
-    box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.5),
-        0 0 40px rgba(56, 189, 248, 0.08),
-        inset 0 0 30px rgba(56, 189, 248, 0.02);
-}
-
-.device-card.offline {
-    background: rgba(18, 18, 22, 0.9);
-    border-color: rgba(255, 255, 255, 0.03);
-}
-
-.device-card.offline .input-value,
-.device-card.offline .jig-name {
-    opacity: 0.35;
-}
-
-.device-card.online {
-    order: -1;
-}
-
-.jig-name {
-    font-weight: 600;
-    color: #38bdf8;
-    letter-spacing: 0.5px;
-    margin-bottom: 16px;
-    white-space: nowrap;
-}
-
-.input-row {
-    margin-bottom: 8px;
-}
-
-.input-value {
-    font-size: 42px;
-    font-weight: 700;
-    color: #f0f9ff;
-    letter-spacing: -1px;
-    transition: all 0.3s ease;
-}
-
-.total-row {
-    font-size: 16px;
-    color: #71717a;
-}
-
-.total-row span {
-    color: #a1a1aa;
-    font-weight: 500;
-}
-
-.pm-row {
-    font-size: 13px;
-    line-height: 1.5;
-    color: #fb923c;
-    margin-top: 12px;
-    min-height: 20px;
-}
-
-.last-update {
-    font-size: 12px;
-    color: #52525b;
-    margin-top: 8px;
-}
-
-::-webkit-scrollbar {
-    width: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgba(56, 189, 248, 0.25);
-    border-radius: 3px;
-}
-
-.navbar {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px 32px;
-    background: rgba(20, 20, 28, 0.8);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-    border-radius: 50px;
-    gap: 40px;
-}
-
-.navbar-stats {
-    display: flex;
-    gap: 40px;
-}
-
-.navbar-stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.navbar-stat-label {
-    font-size: 10px;
-    color: #71717a;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
-
-.navbar-stat-value {
-    font-size: 24px;
-    font-weight: 700;
-    color: #38bdf8;
-    text-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
-}
-
-.navbar-stat-value.online {
-    color: #4ade80;
-    text-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
-}
-
-.navbar-stat-value.offline {
-    color: #f87171;
-    text-shadow: 0 0 15px rgba(248, 113, 113, 0.4);
-}
-
-@media (max-width: 640px) {
-    .card-grid {
-        padding: 20px;
-        padding-bottom: 120px;
-        gap: 16px;
-    }
-    .device-card {
-        padding: 20px;
-        min-height: 180px;
-    }
-    .input-value {
-        font-size: 32px;
-    }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="ToolyTools Refined Neo-Brutalism design system — Light and Dark demo, no production changes.">
+  <title>ToolyTools — Refined Neo-Brutalism Lab</title>
+  <script>
+    // Set the last chosen appearance before CSS loads, to avoid a flash.
+    (function () {
+      try {
+        var saved = localStorage.getItem("toolytools-refined-mode");
+        document.documentElement.dataset.mode =
+          saved === "light" || saved === "dark" ? saved :
+          (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      } catch (_) { document.documentElement.dataset.mode = "light"; }
+    }());
+  </script>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./refined.css">
+  <script src="./refined.js" defer></script>
 </head>
 <body>
-
-<nav class="navbar">
-    <div class="navbar-stats">
-        <div class="navbar-stat">
-            <span class="navbar-stat-value" id="totalCount">0</span>
-            <span class="navbar-stat-label">Total</span>
-        </div>
-        <div class="navbar-stat">
-            <span class="navbar-stat-value online" id="onlineCount">0</span>
-            <span class="navbar-stat-label">Online</span>
-        </div>
-        <div class="navbar-stat">
-            <span class="navbar-stat-value offline" id="offlineCount">0</span>
-            <span class="navbar-stat-label">Offline</span>
-        </div>
+  <!-- Demo controls — not part of ToolyTools' actual website layout. -->
+  <aside class="demo-toolbar" aria-label="Refined design system controls">
+    <div class="toolbar-brand">
+      <span class="toolbar-eyebrow">TOOLYTOOLS / DESIGN LAB</span>
+      <div class="toolbar-name">Refined <span>Neo-Brutalism</span></div>
+      <div class="toolbar-hint">One design direction. Two appearances.</div>
     </div>
-</nav>
+    <div class="toolbar-actions">
+      <div class="mode-switch" role="group" aria-label="Appearance">
+        <button type="button" data-mode-switch="light" aria-pressed="true"><span aria-hidden="true">☀</span> Light</button>
+        <button type="button" data-mode-switch="dark" aria-pressed="false"><span aria-hidden="true">☾</span> Dark</button>
+      </div>
+      <button class="reset-cookie" id="show-cookie" type="button">Show cookie banner</button>
+    </div>
+  </aside>
 
-<div class="card-grid" id="cardContainer"></div>
+  <!-- Preserve the original homepage layout: header, hero, four horizontally
+       scrolling mobile folders, footer and cookie banner. -->
+  <div class="site-preview" id="site-preview" data-theme="refined">
+    <header class="site-header">
+      <div class="site-width header-inner">
+        <span class="site-logo"><span class="logo-accent">t:</span> toolytools</span>
+      </div>
+    </header>
+    <main class="home-screen" id="main-content">
+      <div class="site-width home-container">
+        <div class="home-hero"><p>small tools, made for fun :D</p></div>
+        <section class="folder-grid" aria-label="Tool folders" tabindex="0">
+          <div class="folder-item">
+            <div class="folder-card" aria-label="Utilities folder">
+              <span class="tool-tile tile-equals">=</span>
+            </div>
+            <div class="folder-title">Utilities</div>
+          </div>
+          <div class="folder-item">
+            <div class="folder-card" aria-label="Generators folder">
+              <span class="tool-tile tile-ww">WW</span>
+              <span class="tool-tile tile-ca">CA</span>
+            </div>
+            <div class="folder-title">Generators</div>
+          </div>
+          <div class="folder-item">
+            <div class="folder-card" aria-label="Fitness and Running folder">
+              <span class="tool-tile tile-pc">PC</span>
+              <span class="tool-tile tile-ar">AR</span>
+              <span class="tool-tile tile-mo">MO</span>
+              <span class="tool-tile tile-tp">TP</span>
+            </div>
+            <div class="folder-title">Fitness &amp; Running</div>
+          </div>
+          <div class="folder-item">
+            <div class="folder-card" aria-label="Developer Tools folder">
+              <span class="tool-tile tile-ld">LD</span>
+            </div>
+            <div class="folder-title">Developer Tools</div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="site-width footer-inner">
+        <span>© 2026 ToolyTools</span>
+        <nav class="footer-links" aria-label="Footer pages">
+          <span>About</span><span>Privacy</span><span>Terms</span><span>Contact</span>
+        </nav>
+      </div>
+    </footer>
+    <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie choices">
+      <p>ToolyTools uses local storage for tool settings and optional analytics to improve the site. No ads.</p>
+      <div class="cookie-actions">
+        <button type="button" data-dismiss-cookie="decline">Decline</button>
+        <button type="button" data-dismiss-cookie="accept">Accept</button>
+      </div>
+    </div>
+  </div>
 
-<script>
-const apiUrl = "https://opensheet.elk.sh/1FhLvkCQ2o6ZdRAkx6vjysY9LwC3nQ3EETil7YlKqYlA/DeviceStatus";
-const pmTopicUrl = "https://opensheet.elk.sh/1FhLvkCQ2o6ZdRAkx6vjysY9LwC3nQ3EETil7YlKqYlA/PMTopic";
-
-let cardMap = new Map();
-let PM_RULES = [];
-
-function autoScaleText(element, maxSize = 28, minSize = 14) {
-    let fontSize = maxSize;
-    element.style.fontSize = fontSize + "px";
-
-    while (element.scrollWidth > element.offsetWidth && fontSize > minSize) {
-        fontSize--;
-        element.style.fontSize = fontSize + "px";
-    }
-}
-
-const resizeObserver = new ResizeObserver(entries => {
-    for (let entry of entries) {
-        const nameEl = entry.target.querySelector(".jig-name");
-        if (nameEl) {
-            autoScaleText(nameEl, 28, 14);
-        }
-    }
-});
-
-function isOffline(timestamp) {
-    const now = new Date();
-    const last = new Date(timestamp);
-    const diffMinutes = (now - last) / 1000 / 60;
-    return diffMinutes > 20;
-}
-
-async function loadPMTopics() {
-    try {
-        const res = await fetch(pmTopicUrl, { cache: "no-store" });
-        const data = await res.json();
-        PM_RULES = data.map(row => ({
-            name: row.Items,
-            interval: Number(String(row.Cycles).replace(/,/g, ""))
-        }));
-    } catch (err) {
-        console.error("PM Topic load error:", err);
-    }
-}
-
-function isPMZone(count1) {
-    return (count1 >= 0 && count1 <= 10) ||
-           (count1 >= 19501 && count1 <= 20000);
-}
-
-function getPMList(total) {
-    const THRESHOLD = 1000;
-    let list = [];
-    PM_RULES.forEach(rule => {
-        let cycle = Math.floor(total / rule.interval);
-        let nextTarget = Math.ceil(total / rule.interval) * rule.interval;
-        let remaining = nextTarget - total;
-        if (cycle > 0 || remaining <= THRESHOLD) {
-            list.push(rule.name);
-        }
-    });
-    return list;
-}
-
-async function loadData() {
-    const container = document.getElementById("cardContainer");
-
-    try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-
-        const totalCount = data.length;
-        const onlineCount = data.filter(item => !isOffline(item.Timestamp)).length;
-        const offlineCount = totalCount - onlineCount;
-        
-        document.getElementById("totalCount").textContent = totalCount;
-        document.getElementById("onlineCount").textContent = onlineCount;
-        document.getElementById("offlineCount").textContent = offlineCount;
-
-        data.forEach(item => {
-            const id = item.device_id;
-            const input = item.count1;
-            const total = item.count2;
-            const timestamp = item.Timestamp;
-
-            let card = cardMap.get(id);
-
-            if (!card) {
-                card = document.createElement("div");
-                card.className = "device-card";
-                card.innerHTML = `
-                    <div class="jig-name"></div>
-                    <div>
-                        <div class="input-row">
-                            <span class="input-value"></span>
-                        </div>
-                        <div class="total-row"></div>
-                        <div class="pm-row"></div>
-                        <div class="last-update"></div>
-                    </div>
-                `;
-
-                container.appendChild(card);
-                cardMap.set(id, card);
-                resizeObserver.observe(card);
-            }
-
-            const nameEl = card.querySelector(".jig-name");
-            nameEl.textContent = id;
-
-            card.querySelector(".input-value").textContent = input;
-            card.querySelector(".total-row").textContent = "Total: " + total;
-            card.querySelector(".last-update").textContent = "Last update: " + timestamp;
-
-            const pmRow = card.querySelector(".pm-row");
-            if (isPMZone(input) && PM_RULES.length > 0) {
-                const list = getPMList(total);
-                pmRow.innerHTML = list.length > 0
-                    ? "🔧 ต้องเช็ค:<br>" + list.join("<br>")
-                    : "ยังไม่ถึงรอบ PM";
-            } else {
-                pmRow.textContent = "";
-            }
-
-            if (isOffline(timestamp)) {
-                card.classList.add("offline");
-                card.classList.remove("online");
-            } else {
-                card.classList.remove("offline");
-                card.classList.add("online");
-            }
-        });
-
-    } catch (error) {
-        console.error(error);
-        container.innerHTML = "Error loading data";
-    }
-}
-
-loadData();
-
-async function init() {
-    await loadPMTopics();
-    await loadData();
-    setInterval(loadData, 30000);
-    setInterval(loadPMTopics, 60000);
-    setTimeout(() => location.reload(), 1800000);
-}
-
-init();
-</script>
-
+  <!-- Tool-page specimen. Not part of the production ToolyTools homepage. -->
+  <section class="component-lab" id="component-lab" aria-label="Reusable components demo">
+    <div class="component-lab__inner">
+      <div class="kit-intro">
+        <div>
+          <p class="kit-eyebrow">DESIGN SYSTEM / 01</p>
+          <h2>Other pages, same personality.</h2>
+          <p>ทดสอบ Light / Dark กับส่วนประกอบที่ใช้ในหน้าเครื่องมือจริง เพื่อพัฒนา Refined Neo-Brutalism ต่อให้เป็น Design System เดียวกัน</p>
+        </div>
+        <span class="kit-badge">Light + Dark</span>
+      </div>
+      <div class="kit-grid">
+        <article class="kit-card">
+          <div class="kit-card__head">
+            <h3>Workout Wallpaper</h3>
+            <span class="kit-status">● Preview mode</span>
+          </div>
+          <div class="kit-fields">
+            <div class="kit-field">
+              <label for="kit-goal">Weekly goal (km)</label>
+              <input id="kit-goal" class="kit-control" type="number" min="1" max="999" inputmode="numeric" value="70">
+            </div>
+            <div class="kit-field">
+              <label for="kit-format">Wallpaper format</label>
+              <select id="kit-format" class="kit-control">
+                <option>Portrait</option><option>Landscape</option><option>Square</option>
+              </select>
+            </div>
+          </div>
+          <div class="kit-buttons">
+            <button class="kit-button primary" id="kit-generate" type="button">Update preview →</button>
+            <button class="kit-button" id="kit-reset" type="button">Reset settings</button>
+          </div>
+          <div class="kit-result" aria-live="polite">
+            <div class="kit-result__art">WW</div>
+            <div>
+              <div class="kit-result__text" id="kit-result-title">70 km · Portrait</div>
+              <div class="kit-result__muted" id="kit-result-info">Interactive demo of reusable components</div>
+            </div>
+          </div>
+          <p class="kit-note">Sample UI only — no wallpaper file is generated.</p>
+        </article>
+        <article class="kit-card">
+          <div class="kit-card__head">
+            <h3>Components in context</h3>
+            <span class="kit-status">● Reusable</span>
+          </div>
+          <div class="kit-tabs" role="group" aria-label="Example data">
+            <button type="button" class="kit-tab" data-kit-tab="tools" aria-pressed="true">Tools</button>
+            <button type="button" class="kit-tab" data-kit-tab="activity" aria-pressed="false">Activity</button>
+          </div>
+          <div id="kit-list" class="kit-list"></div>
+          <p class="kit-note">Shared tokens:
+            <span class="kit-code">--ds-surface</span>
+            <span class="kit-code">--ds-accent</span>
+            <span class="kit-code">--ds-border</span>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
 </body>
 </html>

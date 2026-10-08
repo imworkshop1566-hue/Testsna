@@ -1,0 +1,181 @@
+/* ToolyTools — Refined Neo-Brutalism Layout Foundation.
+   Stable geometry for the original site + reusable component specimen.
+   Palette and surface styling are defined exclusively in refined.css. */
+*{box-sizing:border-box}
+html{min-width:280px}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--ds-focus);outline-offset:3px}
+[hidden]{display:none!important}
+
+/* Design-lab-only controls: not intended as a production site header */
+.demo-toolbar{
+  width:min(100%,1100px);margin:0 auto;padding:17px 22px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+}
+.toolbar-brand{min-width:0}
+.toolbar-eyebrow{font-size:10px;letter-spacing:1.5px;font-weight:800}
+.toolbar-name{font-weight:850;font-size:20px;letter-spacing:-.65px;line-height:1.25;margin:3px 0}
+.toolbar-hint{font-size:11px}
+.toolbar-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.mode-switch{display:flex;align-items:center;gap:5px;padding:4px;border-radius:11px}
+.mode-switch button{border:1px solid transparent;min-height:41px;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:750;transition:background-color .18s,color .18s}
+.mode-switch button span{font-size:15px;margin-right:4px}
+.reset-cookie{min-height:41px;border:1px solid;border-radius:8px;padding:9px 12px;font-size:11px;font-weight:700;white-space:nowrap}
+
+/* The fixed ToolyTools homepage layout from the previous demo */
+.site-preview{
+  width:100%;min-height:695px;position:relative;isolation:isolate;
+  display:flex;flex-direction:column;overflow:hidden;
+  border-top:1px solid;
+  transition:background-color .19s ease,color .19s ease,border-color .19s ease;
+}
+.site-width{max-width:1100px;width:100%;margin:0 auto}
+.site-header{height:53px;flex-shrink:0;border-bottom:1px solid}
+.header-inner{height:100%;display:flex;align-items:center}
+.site-logo{font-size:15px;font-weight:800;letter-spacing:-.4px}
+.logo-accent{font-weight:900}
+.home-screen{flex:1;min-width:0}
+.home-hero{padding-top:51px;padding-bottom:38px}
+.home-hero p{
+  margin:0;font-family:Consolas,ui-monospace,monospace;
+  font-size:13px;line-height:1.35;letter-spacing:.1px;
+}
+.folder-grid{display:flex;justify-content:space-between;gap:10px;padding:0 70px 20px}
+.folder-item{flex:0 0 120px;text-align:center}
+.folder-card{
+  width:120px;height:120px;padding:10px;
+  display:grid;grid-template-columns:repeat(2,45px);
+  grid-template-rows:repeat(2,45px);gap:8px;
+  align-content:start;justify-content:start;
+  position:relative;
+  transition:background-color .19s ease,border-color .19s ease,box-shadow .19s ease,transform .19s ease;
+}
+.tool-tile{
+  height:45px;width:45px;display:flex;
+  align-items:center;justify-content:center;
+  font:900 12px/1 Consolas,ui-monospace,monospace;
+  letter-spacing:-.4px;position:relative;z-index:1;
+}
+.folder-title{font-size:15px;font-weight:740;white-space:nowrap;margin-top:17px;line-height:1.4;letter-spacing:-.35px}
+.site-footer{height:67px;flex-shrink:0;border-top:1px solid}
+.footer-inner{
+  height:100%;display:flex;align-items:center;
+  justify-content:space-between;gap:12px;
+  font:11px Consolas,ui-monospace,monospace;
+}
+.footer-links{display:flex;align-items:center;gap:20px}
+.cookie-banner{
+  position:absolute;left:50%;bottom:22px;transform:translateX(-50%);
+  display:flex;align-items:center;gap:20px;
+  width:min(760px,calc(100% - 32px));z-index:5;padding:14px 16px;
+  border:2px solid;border-radius:10px;
+}
+.cookie-banner p{
+  flex:1;min-width:0;margin:0;
+  font:12px/1.5 Consolas,ui-monospace,monospace;
+}
+.cookie-actions{display:flex;gap:7px}
+.cookie-actions button{
+  padding:10px 12px;border:1px solid;
+  border-radius:6px;font:700 12px Consolas,ui-monospace,monospace;
+  min-height:40px;transition:filter .18s,transform .18s;
+}
+.cookie-actions button:hover{filter:brightness(1.08);transform:translateY(-1px)}
+
+/* Reusable component specimen for future tool pages */
+.component-lab{padding:clamp(28px,4vw,52px) 20px 65px;transition:background-color .19s,color .19s}
+.component-lab__inner{width:min(100%,1080px);margin:0 auto}
+.kit-intro{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:22px}
+.kit-eyebrow{font-size:11px;font-weight:850;letter-spacing:1.1px;margin:0 0 8px}
+.kit-intro h2{font-size:clamp(22px,3vw,31px);letter-spacing:-.9px;margin:0 0 9px;line-height:1.15}
+.kit-intro p:last-child{font-size:13px;line-height:1.6;margin:0;max-width:620px}
+.kit-badge{border:1px solid;border-radius:999px;padding:9px 12px;font-size:11px;white-space:nowrap;font-weight:750}
+.kit-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:17px;align-items:start}
+.kit-card{min-width:0;border:2px solid;padding:20px;border-radius:12px}
+.kit-card__head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:20px}
+.kit-card h3{font-size:17px;letter-spacing:-.3px;margin:0}
+.kit-status{border:1px solid;border-radius:999px;font-size:11px;padding:6px 9px;white-space:nowrap}
+.kit-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.kit-field{display:flex;flex-direction:column;min-width:0;gap:7px}
+.kit-field label{font-size:12px;font-weight:770}
+.kit-control{
+  width:100%;min-width:0;min-height:44px;
+  padding:10px 12px;border:1px solid;border-radius:7px;font-size:14px;
+}
+.kit-buttons{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.kit-button{min-height:44px;padding:10px 15px;border:1px solid;border-radius:7px;font-weight:750;transition:transform .17s,background-color .17s}
+.kit-button:active{transform:translateY(1px)}
+.kit-result{display:flex;gap:12px;align-items:flex-start;margin-top:20px;padding:14px;border:2px solid;border-radius:10px}
+.kit-result__art{height:43px;width:43px;flex:0 0 43px;display:grid;place-items:center;border-radius:6px;font-weight:800}
+.kit-result__text{font-size:13px;font-weight:800;line-height:1.5}
+.kit-result__muted{font-size:11px;margin-top:5px}
+.kit-tabs{display:flex;gap:7px;margin-bottom:18px}
+.kit-tab{min-height:38px;border:1px solid;border-radius:7px;padding:8px 12px;font-size:12px;font-weight:750}
+.kit-list{display:grid;gap:9px}
+.kit-list__item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid}
+.kit-list__item:last-child{border-bottom:0}
+.kit-list__title{font-size:12px;font-weight:750}
+.kit-list__sub{font-size:11px;margin-top:5px}
+.kit-pill{font-size:10px;padding:6px 8px;border-radius:999px;font-weight:750;white-space:nowrap}
+.kit-note{font-size:11px;line-height:1.65;margin:14px 0 0}
+.kit-code{display:inline-block;padding:4px 6px;border:1px solid;border-radius:5px;font:11px ui-monospace,monospace;margin:3px 1px}
+
+/* Responsive: mobile homepage remains ONE HORIZONTAL RAIL, never a 2-col grid. */
+@media(max-width:1150px){
+  .site-width{padding-inline:22px}
+  .folder-grid{padding-inline:40px}
+}
+@media(max-width:900px){.kit-grid{grid-template-columns:1fr}}
+@media(max-width:720px){
+  html,body{width:100%;max-width:100%;overflow-x:clip}
+  .demo-toolbar{padding:13px 14px;gap:10px}
+  .toolbar-name{font-size:17px}
+  .toolbar-eyebrow{font-size:9px;letter-spacing:1px}
+  .toolbar-hint{font-size:10px}
+  .toolbar-actions{flex-direction:column;gap:5px;align-items:stretch}
+  .mode-switch{padding:2px}
+  .mode-switch button{min-height:44px;padding:9px 11px;font-size:12px}
+  .reset-cookie{min-height:32px;font-size:10px;padding:6px}
+  .site-preview{min-height:640px;min-width:0}
+  .site-width{padding-inline:26px}
+  .home-hero{padding-top:35px;padding-bottom:39px}
+  .home-hero p{font-size:12px}
+  .folder-grid{
+    width:calc(100% + 52px);margin-left:-26px;
+    padding:0 0 24px 73px;gap:105px;justify-content:flex-start;
+    overflow-x:auto;overscroll-behavior-x:contain;
+    scrollbar-width:none;scroll-snap-type:none
+  }
+  .folder-grid::-webkit-scrollbar{display:none}
+  .folder-item{flex-shrink:0}
+  .folder-title{font-size:14px;margin-top:15px}
+  .site-footer{height:50px}
+  .footer-inner{padding-inline:15px;font-size:9px;gap:4px}
+  .footer-links{gap:9px;font-size:9px;flex-wrap:wrap;justify-content:flex-end}
+  .cookie-banner{bottom:13px;display:block;padding:13px 14px;max-width:calc(100% - 24px)}
+  .cookie-banner p{font-size:11px;margin-bottom:10px;overflow-wrap:anywhere}
+  .cookie-actions{display:flex}
+  .cookie-actions button{flex:1;min-height:44px;font-size:11px}
+  .component-lab{padding:28px 14px 45px}
+  .kit-intro{display:block}
+  .kit-badge{display:inline-block;margin-top:13px}
+  .kit-card{padding:16px}
+  .kit-fields{grid-template-columns:1fr}
+  .kit-buttons{display:grid;grid-template-columns:1fr 1fr}
+  .kit-button{padding:10px 6px}
+}
+@media(max-width:360px){
+ .site-width{padding-inline:19px}
+ .folder-grid{margin-left:-19px;width:calc(100% + 38px);padding-left:60px;gap:85px}
+ .footer-links{gap:6px;font-size:8px}
+ .demo-toolbar{flex-wrap:wrap}
+ .toolbar-actions{flex-direction:row;width:100%;align-items:center}
+ .mode-switch{flex:1}
+ .mode-switch button{flex:1}
+ .reset-cookie{max-width:118px;white-space:normal}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;transition-duration:0s!important;animation-duration:0s!important}
+}
