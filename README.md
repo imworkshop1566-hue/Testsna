@@ -57,3 +57,9 @@ Manrope / Noto Sans Thai font at weight 600, and consistent hover/focus states.
 Primary buttons use high-contrast accent; Secondary buttons use neutral surfaces.
 Light/Dark and Tools/Activity remain pill-shaped segmented selection controls.
 These semantic overrides live in buttons.css (loaded last).
+
+## Floating monogram
+
+The t: mark is a fixed, bottom-left 48px (44px on mobile) monogram,
+styled with the same Light/Dark tokens and premium typography. It is a native
+accessible link to #main-content; no scripts, icons, or assets required.
